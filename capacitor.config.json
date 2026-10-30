@@ -1,0 +1,9 @@
+{
+  "appId": "com.pairid.gameanak",
+  "appName": "Petualangan Spidey Cilik",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

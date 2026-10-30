@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <radialGradient id="badgeGrad192" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FFF9F0"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </radialGradient>
+    <radialGradient id="spideyHeadGrad192" cx="45%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#FF5252"/>
+      <stop offset="85%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </radialGradient>
+    <filter id="stickerShadow192" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#1E293B" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Base Circular Sticker Badge -->
+  <rect x="8" y="8" width="176" height="176" rx="48" fill="url(#badgeGrad192)" stroke="#1E293B" stroke-width="6"/>
+
+  <!-- Web Accent in background -->
+  <path d="M 16 16 L 80 16 M 16 16 L 60 40 M 16 16 L 40 60 M 16 16 L 16 80" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 36 16 Q 34 26 26 34 Q 16 36 16 36" stroke="#CBD5E1" stroke-width="2.5" fill="none"/>
+  <path d="M 60 16 Q 54 40 40 54 Q 16 60 16 60" stroke="#CBD5E1" stroke-width="2.5" fill="none"/>
+
+  <!-- Golden Stars in corners -->
+  <polygon points="160,30 163,38 171,39 165,45 167,53 160,49 153,53 155,45 149,39 157,38" fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
+  <polygon points="32,152 34,158 40,159 36,164 37,170 32,167 27,170 28,164 24,159 30,158" fill="#FBBF24" stroke="#D97706" stroke-width="1.5"/>
+
+  <!-- Spidey Mask Sticker -->
+  <g filter="url(#stickerShadow192)">
+    <!-- Cute Spidey Head -->
+    <ellipse cx="96" cy="98" rx="60" ry="54" fill="url(#spideyHeadGrad192)" stroke="#1E293B" stroke-width="6"/>
+
+    <!-- Web Lines -->
+    <path d="M 96 44 L 96 152 M 42 78 L 150 118 M 42 118 L 150 78" stroke="#B91C1C" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="96" cy="98" rx="36" ry="30" fill="none" stroke="#B91C1C" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <ellipse cx="96" cy="98" rx="18" ry="15" fill="none" stroke="#B91C1C" stroke-width="2" stroke-dasharray="4 3"/>
+
+    <!-- Left Big Cute Eye -->
+    <path d="M 54 94 Q 72 74 88 94 Q 72 110 54 94 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="5.5"/>
+    <ellipse cx="71" cy="94" rx="7" ry="7" fill="#2563EB"/>
+    <circle cx="69" cy="91" r="2.5" fill="#FFFFFF"/>
+
+    <!-- Right Big Cute Eye -->
+    <path d="M 138 94 Q 120 74 104 94 Q 120 110 138 94 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="5.5"/>
+    <ellipse cx="121" cy="94" rx="7" ry="7" fill="#2563EB"/>
+    <circle cx="119" cy="91" r="2.5" fill="#FFFFFF"/>
+
+    <!-- Toddler Rosy Joy Blush -->
+    <ellipse cx="50" cy="110" rx="8" ry="5" fill="#FF8A80" opacity="0.8"/>
+    <ellipse cx="142" cy="110" rx="8" ry="5" fill="#FF8A80" opacity="0.8"/>
+  </g>
+</svg>

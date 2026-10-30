@@ -13,5 +13,10 @@ capture_previews.py
 showcase_preview.html
 level_preview.html
 
+# .NET build artifacts
+portable-windows/**/bin/
+portable-windows/**/obj/
+portable-windows/dist-*/
+
 # Agent working traces / teamwork internal state
 .agents/

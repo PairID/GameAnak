@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="maskableBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FF5252"/>
+      <stop offset="70%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </radialGradient>
+    <radialGradient id="maskableHead" cx="45%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FFF9F0"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </radialGradient>
+    <filter id="maskableShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="8" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Full Bleed Background for Maskable Icon -->
+  <rect width="512" height="512" fill="url(#maskableBg)"/>
+
+  <!-- Subtle Web Background Lines -->
+  <g opacity="0.25">
+    <path d="M 256 0 L 256 512 M 0 256 L 512 256 M 75 75 L 437 437 M 75 437 L 437 75" stroke="#FFFFFF" stroke-width="8"/>
+    <circle cx="256" cy="256" r="120" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+    <circle cx="256" cy="256" r="220" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+  </g>
+
+  <!-- Centered Safe-Zone Spidey Mascot Face Sticker -->
+  <g filter="url(#maskableShadow)">
+    <ellipse cx="256" cy="256" rx="140" ry="125" fill="#EF4444" stroke="#1E293B" stroke-width="14"/>
+
+    <!-- Mask Web Lines -->
+    <path d="M 256 131 L 256 381 M 130 210 L 382 302 M 130 302 L 382 210" stroke="#991B1B" stroke-width="7" stroke-linecap="round"/>
+    <ellipse cx="256" cy="256" rx="85" ry="72" fill="none" stroke="#991B1B" stroke-width="6" stroke-dasharray="14 10"/>
+    <ellipse cx="256" cy="256" rx="42" ry="36" fill="none" stroke="#991B1B" stroke-width="5" stroke-dasharray="10 8"/>
+
+    <!-- Left Eye -->
+    <path d="M 158 246 Q 196 200 234 246 Q 196 284 158 246 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="12"/>
+    <ellipse cx="194" cy="246" rx="15" ry="15" fill="#2563EB"/>
+    <circle cx="190" cy="240" r="5" fill="#FFFFFF"/>
+
+    <!-- Right Eye -->
+    <path d="M 354 246 Q 316 200 278 246 Q 316 284 354 246 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="12"/>
+    <ellipse cx="318" cy="246" rx="15" ry="15" fill="#2563EB"/>
+    <circle cx="314" cy="240" r="5" fill="#FFFFFF"/>
+
+    <!-- Joy Blush -->
+    <ellipse cx="148" cy="282" rx="16" ry="10" fill="#FF8A80" opacity="0.9"/>
+    <ellipse cx="364" cy="282" rx="16" ry="10" fill="#FF8A80" opacity="0.9"/>
+  </g>
+</svg>
