@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="badgeGrad512" cx="50%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="55%" stop-color="#FFF9F0"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </radialGradient>
+    <radialGradient id="spideyHeadGrad512" cx="45%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#FF5252"/>
+      <stop offset="85%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </radialGradient>
+    <linearGradient id="spideyBodyGrad512" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+    <filter id="stickerShadow512" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="10" flood-color="#1E293B" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Sticker Badge -->
+  <rect x="24" y="24" width="464" height="464" rx="120" fill="url(#badgeGrad512)" stroke="#1E293B" stroke-width="14"/>
+
+  <!-- Web Accents in Corners -->
+  <g opacity="0.7">
+    <path d="M 44 44 L 180 44 M 44 44 L 140 100 M 44 44 L 100 140 M 44 44 L 44 180" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 90 44 Q 85 68 68 85 Q 44 90 44 90" stroke="#CBD5E1" stroke-width="5" fill="none"/>
+    <path d="M 140 44 Q 130 95 95 130 Q 44 140 44 140" stroke="#CBD5E1" stroke-width="5" fill="none"/>
+  </g>
+
+  <!-- Big Sparkling Stars -->
+  <g id="starsAccent">
+    <polygon points="430,70 438,90 460,93 444,109 448,131 430,120 412,131 416,109 400,93 422,90" fill="#FBBF24" stroke="#D97706" stroke-width="4"/>
+    <circle cx="430" cy="98" r="4" fill="#FEF08A"/>
+
+    <polygon points="80,410 86,424 100,426 90,436 93,450 80,443 67,450 70,436 60,426 74,424" fill="#FBBF24" stroke="#D97706" stroke-width="3"/>
+  </g>
+
+  <!-- Spidey Figure / Sticker -->
+  <g filter="url(#stickerShadow512)">
+    <!-- Little Body / Shoulders -->
+    <rect x="180" y="320" width="152" height="110" rx="40" fill="url(#spideyBodyGrad512)" stroke="#1E293B" stroke-width="11"/>
+    <!-- Blue Suit Accents -->
+    <path d="M 180 350 C 200 370 200 395 180 415 L 205 415 L 205 340 Z" fill="#2563EB"/>
+    <path d="M 332 350 C 312 370 312 395 332 415 L 307 415 L 307 340 Z" fill="#2563EB"/>
+    <!-- Spider Chest Emblem -->
+    <ellipse cx="256" cy="370" rx="12" ry="15" fill="#1E293B"/>
+    <path d="M 248 360 Q 235 355 230 348 M 264 360 Q 277 355 282 348 M 248 378 Q 232 385 228 395 M 264 378 Q 280 385 284 395" stroke="#1E293B" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Cute Giant Spidey Head -->
+    <ellipse cx="256" cy="220" rx="150" ry="135" fill="url(#spideyHeadGrad512)" stroke="#1E293B" stroke-width="14"/>
+
+    <!-- Web Lines on Mask -->
+    <path d="M 256 85 L 256 355 M 120 170 L 392 270 M 120 270 L 392 170" stroke="#B91C1C" stroke-width="7" stroke-linecap="round"/>
+    <ellipse cx="256" cy="220" rx="90" ry="76" fill="none" stroke="#B91C1C" stroke-width="6" stroke-dasharray="14 10"/>
+    <ellipse cx="256" cy="220" rx="45" ry="38" fill="none" stroke="#B91C1C" stroke-width="5" stroke-dasharray="10 8"/>
+
+    <!-- Big Expressive Mask Eyes -->
+    <!-- Left Eye -->
+    <path d="M 150 210 Q 192 160 232 210 Q 192 250 150 210 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="13"/>
+    <ellipse cx="190" cy="210" rx="16" ry="16" fill="#2563EB"/>
+    <circle cx="186" cy="204" r="6" fill="#FFFFFF"/>
+
+    <!-- Right Eye -->
+    <path d="M 362 210 Q 320 160 280 210 Q 320 250 362 210 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="13"/>
+    <ellipse cx="322" cy="210" rx="16" ry="16" fill="#2563EB"/>
+    <circle cx="318" cy="204" r="6" fill="#FFFFFF"/>
+
+    <!-- Sweet Blush Cheeks -->
+    <ellipse cx="140" cy="250" rx="18" ry="11" fill="#FF8A80" opacity="0.8"/>
+    <ellipse cx="372" cy="250" rx="18" ry="11" fill="#FF8A80" opacity="0.8"/>
+  </g>
+</svg>

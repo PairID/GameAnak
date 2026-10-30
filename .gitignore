@@ -1,0 +1,17 @@
+# Node & temporary files
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Python cache & temp
+__pycache__/
+*.py[cod]
+
+# Temporary test scratch & preview capture helpers
+capture_previews.py
+showcase_preview.html
+level_preview.html
+
+# Agent working traces / teamwork internal state
+.agents/

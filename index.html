@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Petualangan Spidey Cilik - Game Edukasi Balita</title>
+  <meta name="description" content="Web Game Edukasi Balita 3-4 Tahun Offline Ramah Anak">
+  <meta name="theme-color" content="#EF4444">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="style.css">
+  <link rel="modulepreload" href="audio.js">
+  <link rel="modulepreload" href="mascot.js">
+  <link rel="modulepreload" href="levels.js">
+  <link rel="modulepreload" href="engines.js">
+</head>
+<body>
+  <div id="app" class="app-root">
+    
+    <!-- 1. HEADER UTAMA -->
+    <header class="app-header">
+      <div class="header-left">
+        <button id="btnHeaderBack" class="header-btn back-btn" aria-label="Kembali" style="display:none;">
+          <span class="btn-icon">⬅️</span>
+        </button>
+        <div id="headerTitle" class="header-badge">
+          <span class="badge-icon">🕷️</span>
+          <span class="badge-text">Spidey Cilik</span>
+        </div>
+      </div>
+      
+      <div class="header-right">
+        <!-- Indikator Total Bintang -->
+        <div id="starCounter" class="star-pill" title="Total Bintang Kamu">
+          <span class="star-icon">⭐</span>
+          <span id="totalStarsCount" class="star-count">0</span>
+        </div>
+        <!-- Tombol Buka Sertifikat -->
+        <button id="btnOpenCert" class="header-btn cert-btn" aria-label="Sertifikat Juara" title="Lihat Sertifikat Juara">
+          <span class="btn-icon">🏆</span>
+        </button>
+        <!-- Tombol Mode Orang Tua (Tahan 2 Detik) -->
+        <button id="btnOpenParent" class="header-btn parent-btn" aria-label="Mode Orang Tua" title="Tahan 2 Detik untuk Mode Orang Tua">
+          <span class="btn-icon">⚙️</span>
+          <span class="hold-progress" id="parentHoldProgress"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. BAR INSTRUKSI & MASKOT REAKTIF (Selalu Muncul saat Bermain) -->
+    <section id="instructionBar" class="instruction-bar" style="display:none;">
+      <button id="btnSpeakPrompt" class="jumbo-speaker-btn" aria-label="Dengarkan Suara Instruksi">
+        <span class="speaker-icon">🔊</span>
+        <span class="speaker-wave"></span>
+      </button>
+      <div id="promptText" class="prompt-text">
+        Sentuh layar untuk mulai bermain bersama Spidey!
+      </div>
+      <div id="mascotBubble" class="mascot-avatar">
+        <!-- SVG Mascot Hero / Robot di-inject secara dinamis -->
+      </div>
+    </section>
+
+    <!-- 3. CONTAINER UTAMA (3 TAMPILAN: WORLDS, LEVELS, GAME) -->
+    <main id="mainContainer" class="main-content">
+      
+      <!-- Tampilan 1: Pemilihan 4 Dunia -->
+      <section id="viewWorlds" class="view-panel active">
+        <div class="welcome-banner">
+          <div class="banner-mascot" id="welcomeMascot"></div>
+          <div class="banner-text">
+            <h2>Halo Pahlawan Cilik! 🌟</h2>
+            <p>Pilih dunia petualangan seru untuk bermain: 🎮✨</p>
+          </div>
+        </div>
+        <div class="worlds-grid" id="worldsGrid">
+          <!-- 4 Kartu Dunia Sticker: Hutan Satwa, Kota Angka, Markas Pahlawan, Lab Robot -->
+        </div>
+      </section>
+
+      <!-- Tampilan 2: Pemilihan Level dalam Dunia Aktif -->
+      <section id="viewLevels" class="view-panel" style="display:none;">
+        <div class="levels-header">
+          <h2 id="currentWorldTitle">Dunia</h2>
+          <div class="levels-progress-pill" id="currentWorldProgress">0 / 0 Level</div>
+        </div>
+        <div class="levels-grid" id="levelsGrid">
+          <!-- Grid sticker level 1..N dinamis -->
+        </div>
+      </section>
+
+      <!-- Tampilan 3: Area Permainan Aktif (Engine Mount) -->
+      <section id="viewGame" class="view-panel" style="display:none;">
+        <div class="game-topbar">
+          <span id="gameLevelBadge" class="level-badge">Level 1</span>
+          <span id="gameLevelTitle" class="level-title">Judul Permainan</span>
+        </div>
+        <!-- Di sinilah Engines[renderMethod](gameMount, level, onComplete) dipasang -->
+        <div id="gameMount" class="game-mount"></div>
+      </section>
+
+    </main>
+
+    <!-- 4. MODAL PERAYAAN KEMENANGAN (VICTORY MODAL DENGAN KONFETI) -->
+    <div id="modalVictory" class="modal-overlay" style="display:none;">
+      <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+      <div class="modal-card victory-card">
+        <div class="victory-mascot" id="victoryMascot"></div>
+        <div class="victory-stars" id="victoryStarsAnim">
+          <span class="big-star">⭐</span>
+        </div>
+        <h2 class="victory-title">Hore! Hebat Sekali! ✨</h2>
+        <p class="victory-subtitle">Kamu berhasil menyelesaikan misi ini!</p>
+        <div class="victory-actions">
+          <button id="btnNextLevel" class="jumbo-action-btn primary-action">
+            <span>Lanjut Main! ➡️</span>
+          </button>
+          <div class="secondary-actions">
+            <button id="btnReplayLevel" class="sub-action-btn">🔄 Main Lagi</button>
+            <button id="btnVictoryLevelSelect" class="sub-action-btn">🗺️ Pilih Level</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. MODAL SERTIFIKAT JUARA ("MASTER KODER CILIK SPIDEY") -->
+    <div id="modalCertificate" class="modal-overlay" style="display:none;">
+      <div class="modal-card cert-card-wrapper">
+        <div class="cert-card-actions no-print">
+          <button id="btnPrintCert" class="primary-btn">🖨️ Cetak / Simpan PDF</button>
+          <button id="btnCloseCert" class="small-btn">✖️ Tutup</button>
+        </div>
+        <!-- Sertifikat Resmi Siap Cetak -->
+        <div id="printableCertificate" class="certificate-sheet">
+          <div class="cert-border">
+            <div class="cert-corner tl">🕸️</div>
+            <div class="cert-corner tr">🕸️</div>
+            <div class="cert-corner bl">🤖</div>
+            <div class="cert-corner br">🕷️</div>
+            
+            <div class="cert-header">
+              <div class="cert-logo-box" id="certMascotLeft"></div>
+              <div class="cert-title-group">
+                <span class="cert-badge-tag">PIAGAM PENGHARGAAN RESMI</span>
+                <h1 class="cert-main-title">MASTER KODER CILIK SPIDEY</h1>
+                <p class="cert-lead">Diberikan kepada pahlawan cilik hebat:</p>
+              </div>
+              <div class="cert-logo-box" id="certMascotRight"></div>
+            </div>
+
+            <div class="cert-recipient-box">
+              <div id="certChildName" class="recipient-name">Pahlawan Cilik</div>
+              <div class="recipient-underline"></div>
+            </div>
+
+            <div class="cert-body-text">
+              Telah berhasil menyelesaikan rangkaian latihan pemecahan masalah,
+              berhitung cerdas, labirin logika, dan algoritma koding robot balita!
+            </div>
+
+            <div class="cert-stats-row">
+              <div class="cert-stat-badge">
+                <span class="stat-emoji">⭐</span>
+                <span id="certTotalStars">0</span> Bintang Emas
+              </div>
+              <div class="cert-stat-badge">
+                <span class="stat-emoji">🏅</span>
+                <span id="certCompletedLevels">0</span> Misi Selesai
+              </div>
+            </div>
+
+            <div class="cert-footer">
+              <div class="cert-sign-col">
+                <div class="sign-date" id="certIssueDate">Tanggal: 30 Oktober 2026</div>
+                <div class="sign-line">Markas Pahlawan Cilik</div>
+              </div>
+              <div class="cert-seal-col">
+                <div class="gold-seal">
+                  <span>CAP RESMI<br>JUARA</span>
+                </div>
+              </div>
+              <div class="cert-sign-col">
+                <div class="sign-name">Spidey Cilik & Spideybot</div>
+                <div class="sign-title">Pelatih Koding Ramah Balita</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. MODAL MODE ORANG TUA (PROTECTED PARENTAL GATE) -->
+    <div id="modalParent" class="modal-overlay" style="display:none;">
+      <div class="modal-card parent-modal-card">
+        
+        <!-- Sub-Panel 1: Parental Gate Challenge (Mencegah Akses Balita) -->
+        <div id="parentGateSection" class="parent-gate-box">
+          <div class="gate-icon">🛡️</div>
+          <h3>Area Khusus Orang Tua / Pendidik</h3>
+          <p class="gate-instruction">Untuk membuka, silakan jawab soal penjumlahan berikut:</p>
+          <div class="math-question" id="parentMathQuestion">Berapa 4 + 3?</div>
+          <div class="math-choices" id="parentMathChoices">
+            <!-- Pilihan angka 1..10 -->
+          </div>
+          <button id="btnCancelParentGate" class="text-btn">Batal / Kembali ke Game</button>
+        </div>
+
+        <!-- Sub-Panel 2: Dashboard Pengaturan Orang Tua (Setelah Lolos Gate) -->
+        <div id="parentDashboardSection" class="parent-dashboard-box" style="display:none;">
+          <div class="dashboard-header">
+            <h3>⚙️ Pengaturan & Laporan Belajar</h3>
+            <button id="btnCloseParentDash" class="close-icon-btn">✖️</button>
+          </div>
+
+          <div class="settings-group">
+            <label for="inputChildName">Nama Panggilan Anak (untuk Sertifikat):</label>
+            <div class="input-with-save">
+              <input type="text" id="inputChildName" maxlength="30" placeholder="Contoh: Arka / Salsabila">
+              <button id="btnSaveChildName" class="small-btn primary">Simpan 💾</button>
+            </div>
+          </div>
+
+          <div class="progress-summary-box">
+            <h4>📊 Rekap Kemajuan 4 Dunia</h4>
+            <div class="world-recap-list" id="worldRecapList">
+              <!-- Baris per dunia: Nama, progres level, bintang -->
+            </div>
+          </div>
+
+          <div class="audio-test-box">
+            <h4>🔊 Uji Fitur Audio & Suara Narator</h4>
+            <div class="test-btn-row">
+              <button id="btnTestSfx" class="test-btn">Uji Efek SFX 🎵</button>
+              <button id="btnTestTts" class="test-btn">Uji Suara Indonesia 🗣️</button>
+            </div>
+          </div>
+
+          <div class="danger-zone-box">
+            <h4>⚠️ Reset Kemajuan Permainan</h4>
+            <p>Hapus seluruh bintang dan riwayat level untuk mengulang dari awal.</p>
+            <button id="btnResetProgress" class="danger-btn">Reset Seluruh Progres 🔄</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT UTAMA SPA MODULE -->
+  <script type="module" src="app.js"></script>
+
+  <!-- REGISTRASI SERVICE WORKER PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch((err) => {
+          console.warn('SW registration failed:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

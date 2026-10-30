@@ -1,0 +1,45 @@
+{
+  "id": "petualangan-spidey-cilik",
+  "name": "Petualangan Spidey Cilik - Game Edukasi Balita",
+  "short_name": "Spidey Cilik",
+  "description": "Web Game PWA Interaktif Edukasi Otak Anak usia 3-4 tahun dengan 70 level tantangan dan koding ramah balita.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFF9F0",
+  "theme_color": "#EF4444",
+  "lang": "id",
+  "dir": "ltr",
+  "categories": [
+    "education",
+    "kids",
+    "games"
+  ],
+  "icons": [
+    {
+      "src": "icons/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

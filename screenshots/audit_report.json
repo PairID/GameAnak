@@ -1,0 +1,170 @@
+{
+  "14": {
+    "leftItems": [],
+    "rightItems": []
+  },
+  "16": {
+    "question": "Mana topeng yang arah hadapnya berbeda?",
+    "options": [
+      {
+        "index": 0,
+        "hiddenText": "Topeng Hadap Kanan",
+        "svgWidth": "104",
+        "svgHeight": "104",
+        "hasTransform": "none",
+        "innerSvgHash": 1543
+      },
+      {
+        "index": 1,
+        "hiddenText": "Topeng Hadap Kanan",
+        "svgWidth": "104",
+        "svgHeight": "104",
+        "hasTransform": "none",
+        "innerSvgHash": 1543
+      },
+      {
+        "index": 2,
+        "hiddenText": "Topeng Hadap Kiri",
+        "svgWidth": "104",
+        "svgHeight": "104",
+        "hasTransform": "none",
+        "innerSvgHash": 1586
+      },
+      {
+        "index": 3,
+        "hiddenText": "Topeng Hadap Kanan",
+        "svgWidth": "104",
+        "svgHeight": "104",
+        "hasTransform": "none",
+        "innerSvgHash": 1543
+      }
+    ]
+  },
+  "18": {
+    "slots": [
+      "1\nPaling Kecil",
+      "2\nSedang",
+      "3\nPaling Besar"
+    ],
+    "buttons": [
+      {
+        "label": "Spidey Besar",
+        "svgWidth": "124",
+        "svgHeight": "124",
+        "hasSvg": true
+      },
+      {
+        "label": "Spidey Sedang",
+        "svgWidth": "84",
+        "svgHeight": "84",
+        "hasSvg": true
+      },
+      {
+        "label": "Spidey Cilik",
+        "svgWidth": "50",
+        "svgHeight": "50",
+        "hasSvg": true
+      }
+    ]
+  },
+  "19": {
+    "overlayComputed": {
+      "display": "none",
+      "visibility": "visible",
+      "opacity": "0",
+      "zIndex": "20",
+      "pointerEvents": "none"
+    },
+    "dots": [
+      {
+        "num": "1",
+        "styleLeft": "50%",
+        "styleTop": "15%",
+        "rectX": 202,
+        "rectY": 445,
+        "rectW": 61,
+        "rectH": 61,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      },
+      {
+        "num": "2",
+        "styleLeft": "75%",
+        "styleTop": "25%",
+        "rectX": 261,
+        "rectY": 455,
+        "rectW": 54,
+        "rectH": 54,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      },
+      {
+        "num": "3",
+        "styleLeft": "85%",
+        "styleTop": "50%",
+        "rectX": 294,
+        "rectY": 539,
+        "rectW": 54,
+        "rectH": 54,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      },
+      {
+        "num": "4",
+        "styleLeft": "75%",
+        "styleTop": "75%",
+        "rectX": 261,
+        "rectY": 622,
+        "rectW": 54,
+        "rectH": 54,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      },
+      {
+        "num": "5",
+        "styleLeft": "50%",
+        "styleTop": "85%",
+        "rectX": 179,
+        "rectY": 656,
+        "rectW": 54,
+        "rectH": 54,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      },
+      {
+        "num": "6",
+        "styleLeft": "25%",
+        "styleTop": "75%",
+        "rectX": 97,
+        "rectY": 622,
+        "rectW": 54,
+        "rectH": 54,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      },
+      {
+        "num": "7",
+        "styleLeft": "15%",
+        "styleTop": "50%",
+        "rectX": 64,
+        "rectY": 539,
+        "rectW": 54,
+        "rectH": 54,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      },
+      {
+        "num": "8",
+        "styleLeft": "25%",
+        "styleTop": "25%",
+        "rectX": 97,
+        "rectY": 455,
+        "rectW": 54,
+        "rectH": 54,
+        "zIndex": "10",
+        "pointerEvents": "auto"
+      }
+    ],
+    "dot1CoveredBy": "none"
+  }
+}

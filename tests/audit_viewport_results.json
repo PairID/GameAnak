@@ -1,0 +1,2511 @@
+{
+  "320x568 (iPhone SE)": {
+    "viewWorlds": {
+      "stateName": "viewWorlds",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 5,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "viewLevels": {
+      "stateName": "viewLevels",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 13,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_hubungkan": {
+      "stateName": "game_hubungkan",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 11,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".pair-item",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s, background 0.15s, border-color 0.15s",
+          "cursor": "pointer",
+          "touchAction": "none"
+        }
+      ]
+    },
+    "game_labirin": {
+      "stateName": "game_labirin",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 32,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".maze-cell",
+          "transition": "transform 0.12s, background 0.15s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".nav-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_pilih": {
+      "stateName": "game_pilih",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 7,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".choice-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_titik": {
+      "stateName": "game_titik",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 13,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_tebalkan": {
+      "stateName": "game_tebalkan",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 5,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_mewarnai": {
+      "stateName": "game_mewarnai",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 11,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_urutkan": {
+      "stateName": "game_urutkan",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_panah": {
+      "stateName": "game_panah",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 9,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_memori": {
+      "stateName": "game_memori",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 9,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalVictory": {
+      "stateName": "modalVictory",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalCertificate": {
+      "stateName": "modalCertificate",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 11,
+      "undersizedCount": 2,
+      "undersizedSamples": [
+        {
+          "sel": "button",
+          "w": 107.1,
+          "h": 46.8,
+          "id": "btnPrintCert",
+          "className": "primary-btn",
+          "text": "🖨️ Cetak / Simpan PDF"
+        },
+        {
+          "sel": "button",
+          "w": 55.4,
+          "h": 46.8,
+          "id": "btnCloseCert",
+          "className": "small-btn",
+          "text": "✖️ Tutup"
+        }
+      ],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalParentGate": {
+      "stateName": "modalParentGate",
+      "docScrollW": 320,
+      "docClientW": 320,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 16,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    }
+  },
+  "375x667 (Standard Mobile)": {
+    "viewWorlds": {
+      "stateName": "viewWorlds",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 5,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "viewLevels": {
+      "stateName": "viewLevels",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 13,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_hubungkan": {
+      "stateName": "game_hubungkan",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 11,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".pair-item",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s, background 0.15s, border-color 0.15s",
+          "cursor": "pointer",
+          "touchAction": "none"
+        }
+      ]
+    },
+    "game_labirin": {
+      "stateName": "game_labirin",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 32,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".maze-cell",
+          "transition": "transform 0.12s, background 0.15s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".nav-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_pilih": {
+      "stateName": "game_pilih",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 7,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".choice-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_titik": {
+      "stateName": "game_titik",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 13,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_tebalkan": {
+      "stateName": "game_tebalkan",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 5,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_mewarnai": {
+      "stateName": "game_mewarnai",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 11,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_urutkan": {
+      "stateName": "game_urutkan",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_panah": {
+      "stateName": "game_panah",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 9,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_memori": {
+      "stateName": "game_memori",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 9,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalVictory": {
+      "stateName": "modalVictory",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 1,
+      "spillSamples": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "className": "modal-card victory-card",
+          "left": -2,
+          "right": 377,
+          "width": 378,
+          "spill": 2
+        }
+      ],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalCertificate": {
+      "stateName": "modalCertificate",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 11,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalParentGate": {
+      "stateName": "modalParentGate",
+      "docScrollW": 375,
+      "docClientW": 375,
+      "hasScrollOverflow": false,
+      "spillCount": 1,
+      "spillSamples": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "className": "modal-card parent-modal-card",
+          "left": -2,
+          "right": 377,
+          "width": 378,
+          "spill": 2
+        }
+      ],
+      "totalControls": 16,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    }
+  },
+  "768x1024 (iPad Portrait)": {
+    "viewWorlds": {
+      "stateName": "viewWorlds",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "viewLevels": {
+      "stateName": "viewLevels",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 14,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_hubungkan": {
+      "stateName": "game_hubungkan",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".pair-item",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s, background 0.15s, border-color 0.15s",
+          "cursor": "pointer",
+          "touchAction": "none"
+        }
+      ]
+    },
+    "game_labirin": {
+      "stateName": "game_labirin",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 33,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".maze-cell",
+          "transition": "transform 0.12s, background 0.15s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".nav-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_pilih": {
+      "stateName": "game_pilih",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 8,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".choice-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_titik": {
+      "stateName": "game_titik",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 14,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_tebalkan": {
+      "stateName": "game_tebalkan",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_mewarnai": {
+      "stateName": "game_mewarnai",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_urutkan": {
+      "stateName": "game_urutkan",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 7,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_panah": {
+      "stateName": "game_panah",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 10,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_memori": {
+      "stateName": "game_memori",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 10,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalVictory": {
+      "stateName": "modalVictory",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 13,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalCertificate": {
+      "stateName": "modalCertificate",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 1,
+      "spillSamples": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "className": "modal-card cert-card-wrapper",
+          "left": -24,
+          "right": 792,
+          "width": 816,
+          "spill": 24
+        }
+      ],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalParentGate": {
+      "stateName": "modalParentGate",
+      "docScrollW": 768,
+      "docClientW": 768,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 17,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    }
+  },
+  "1024x768 (iPad Landscape)": {
+    "viewWorlds": {
+      "stateName": "viewWorlds",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "viewLevels": {
+      "stateName": "viewLevels",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 14,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_hubungkan": {
+      "stateName": "game_hubungkan",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".pair-item",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s, background 0.15s, border-color 0.15s",
+          "cursor": "pointer",
+          "touchAction": "none"
+        }
+      ]
+    },
+    "game_labirin": {
+      "stateName": "game_labirin",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 33,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".maze-cell",
+          "transition": "transform 0.12s, background 0.15s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".nav-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_pilih": {
+      "stateName": "game_pilih",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 8,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".choice-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_titik": {
+      "stateName": "game_titik",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 14,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_tebalkan": {
+      "stateName": "game_tebalkan",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_mewarnai": {
+      "stateName": "game_mewarnai",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_urutkan": {
+      "stateName": "game_urutkan",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 7,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_panah": {
+      "stateName": "game_panah",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 10,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_memori": {
+      "stateName": "game_memori",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 10,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalVictory": {
+      "stateName": "modalVictory",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 13,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalCertificate": {
+      "stateName": "modalCertificate",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalParentGate": {
+      "stateName": "modalParentGate",
+      "docScrollW": 1024,
+      "docClientW": 1024,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 17,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    }
+  },
+  "1920x1080 (Desktop FHD)": {
+    "viewWorlds": {
+      "stateName": "viewWorlds",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "viewLevels": {
+      "stateName": "viewLevels",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 14,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_hubungkan": {
+      "stateName": "game_hubungkan",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".pair-item",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s, background 0.15s, border-color 0.15s",
+          "cursor": "pointer",
+          "touchAction": "none"
+        }
+      ]
+    },
+    "game_labirin": {
+      "stateName": "game_labirin",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 33,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".maze-cell",
+          "transition": "transform 0.12s, background 0.15s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".nav-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_pilih": {
+      "stateName": "game_pilih",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 8,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".choice-btn",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_titik": {
+      "stateName": "game_titik",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 14,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_tebalkan": {
+      "stateName": "game_tebalkan",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 6,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_mewarnai": {
+      "stateName": "game_mewarnai",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_urutkan": {
+      "stateName": "game_urutkan",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 7,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_panah": {
+      "stateName": "game_panah",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 10,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "game_memori": {
+      "stateName": "game_memori",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 10,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalVictory": {
+      "stateName": "modalVictory",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 13,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalCertificate": {
+      "stateName": "modalCertificate",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 12,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    },
+    "modalParentGate": {
+      "stateName": "modalParentGate",
+      "docScrollW": 1920,
+      "docClientW": 1920,
+      "hasScrollOverflow": false,
+      "spillCount": 0,
+      "spillSamples": [],
+      "totalControls": 17,
+      "undersizedCount": 0,
+      "undersizedSamples": [],
+      "squishyReport": [
+        {
+          "sel": "button",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".memory-card",
+          "transition": "all",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".world-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        },
+        {
+          "sel": ".level-card",
+          "transition": "transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s",
+          "cursor": "pointer",
+          "touchAction": "auto"
+        }
+      ]
+    }
+  }
+}
