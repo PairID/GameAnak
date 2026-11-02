@@ -1,5 +1,6 @@
 // sw.js - Service Worker for Petualangan Spidey Cilik
 // Cache-First strategy ensuring 100% offline capability for toddler educational gameplay
+// Version: 1.1.0-w5-pwa-update
 
 const CACHE_NAME = 'spidey-cilik-v1';
 
@@ -20,11 +21,22 @@ const ASSETS_TO_CACHE = [
   './icons/icon-maskable.svg'
 ];
 
-// Install Event: pre-cache all static shell and game assets
+// Install Event: pre-cache all static shell and game assets with cache reload
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => {
+      .then(async (cache) => {
+        // Force fresh network fetch on install so updates immediately overwrite stale cache
+        for (const asset of ASSETS_TO_CACHE) {
+          try {
+            const fresh = await fetch(asset, { cache: 'reload' });
+            if (fresh && fresh.status === 200) {
+              await cache.put(asset, fresh);
+            }
+          } catch (e) {
+            // offline fallback
+          }
+        }
         return cache.addAll(ASSETS_TO_CACHE);
       })
       .then(() => {

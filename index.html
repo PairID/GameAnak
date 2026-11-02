@@ -73,11 +73,11 @@
           <div class="banner-mascot" id="welcomeMascot"></div>
           <div class="banner-text">
             <h2>Halo Pahlawan Cilik! 🌟</h2>
-            <p>Pilih dunia petualangan seru untuk bermain: 🎮✨</p>
+            <p>Pilih dari 5 dunia petualangan seru untuk bermain: 🎮✨</p>
           </div>
         </div>
         <div class="worlds-grid" id="worldsGrid">
-          <!-- 4 Kartu Dunia Sticker: Hutan Satwa, Kota Angka, Markas Pahlawan, Lab Robot -->
+          <!-- 5 Kartu Dunia Sticker: Hutan Satwa, Kota Angka, Markas Pahlawan, Lab Robot, Dunia Teka-Teki -->
         </div>
       </section>
 
@@ -257,7 +257,20 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch((err) => {
+        navigator.serviceWorker.register('./sw.js').then((reg) => {
+          reg.update();
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'activated' && navigator.serviceWorker.controller) {
+                  // Reload smoothly to mount updated 5 worlds
+                  window.location.reload();
+                }
+              });
+            }
+          });
+        }).catch((err) => {
           console.warn('SW registration failed:', err);
         });
       });

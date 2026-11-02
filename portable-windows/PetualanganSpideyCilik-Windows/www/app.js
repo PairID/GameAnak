@@ -522,7 +522,9 @@ export class AppController {
       const card = document.createElement('div');
       card.className = `world-card world-card-${world.id}`;
       card.dataset.worldId = world.id;
+      const isNewBadge = world.id === 'puzzle' ? '<span class="world-new-badge">BARU! 🧩✨</span>' : '';
       card.innerHTML = `
+        ${isNewBadge}
         <span class="world-icon">${world.emoji}</span>
         <h3 class="world-title">${world.name}</h3>
         <p class="world-desc">${world.desc}</p>
