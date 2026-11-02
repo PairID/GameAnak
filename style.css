@@ -452,6 +452,15 @@ html, body {
 .world-card-angka { background: #FEF3C7; border-color: #D97706; }
 .world-card-spidey { background: #FEE2E2; border-color: #B91C1C; }
 .world-card-koding { background: #EFF6FF; border-color: #1D4ED8; }
+.world-card-puzzle,
+.world-card-tekateki {
+  background: #F5F3FF;
+  border-color: #7C3AED;
+}
+.world-card-puzzle:hover,
+.world-card-tekateki:hover {
+  box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.7), var(--jelly-shadow-hover);
+}
 
 /* View 2: Levels Selection */
 .levels-header {
@@ -1920,6 +1929,595 @@ html, body {
 }
 
 /* ==========================================================================
+   10. Engine Pola (Lengkapi Pola / Pattern Train) - World 5
+   ========================================================================== */
+.engine-pola {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pattern-board {
+  width: 100%;
+  background: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: var(--border-radius-card);
+  padding: 18px 20px;
+  box-shadow: var(--jelly-shadow);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.pattern-train {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pattern-item {
+  width: 80px;
+  height: 80px;
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 18px;
+  border: 3px solid var(--slate-dark);
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--jelly-shadow);
+  box-sizing: border-box;
+}
+
+.pattern-visual-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.pattern-item.missing-slot.pulse-slot {
+  border: 3.5px dashed #8B5CF6;
+  background: #F5F3FF;
+  animation: pulsePolaSlot 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes pulsePolaSlot {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+  100% { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
+}
+
+.slot-question {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #7C3AED;
+}
+
+.pattern-tray-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--slate-dark);
+  text-align: center;
+  margin-top: 6px;
+}
+
+.pattern-options-tray {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.choice-btn.pattern-choice-btn {
+  min-width: 76px;
+  min-height: 76px;
+  border-radius: 20px;
+  border: 3.5px solid var(--slate-dark);
+  background: #FFFFFF;
+  box-shadow: var(--jelly-shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s var(--spring-bounce), box-shadow 0.12s ease;
+  box-sizing: border-box;
+}
+
+.choice-btn.pattern-choice-btn:active {
+  transform: translateY(4px) scale(1.02, 0.95);
+  box-shadow: var(--jelly-shadow-active);
+}
+
+.snap-in {
+  animation: snapInKey 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes snapInKey {
+  0% { transform: scale(0.6) rotate(-8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.dragging-pola-ghost {
+  pointer-events: none;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
+}
+
+/* ==========================================================================
+   11. Engine Kode (Pecahkan Kode Rahasia / Secret Cipher) - World 5
+   ========================================================================== */
+.engine-kode {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cipher-legend-bar {
+  background: #F5F3FF;
+  border: 3px solid #7C3AED;
+  border-radius: var(--border-radius-card);
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--jelly-shadow);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.legend-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #6D28D9;
+}
+
+.legend-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cipher-key-badge {
+  background: #FFFFFF;
+  border: 2.5px solid #7C3AED;
+  border-radius: var(--border-radius-pill);
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 0 #6D28D9;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.key-eq {
+  color: #8B5CF6;
+  font-weight: 900;
+}
+
+.key-val {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #7C3AED;
+}
+
+.code-challenge-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+
+.code-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.code-col.active .code-slot {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.35), var(--jelly-shadow);
+}
+
+.code-symbol-box {
+  width: 76px;
+  height: 76px;
+  min-width: 64px;
+  min-height: 64px;
+  border: 3px solid var(--slate-dark);
+  border-radius: 20px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--jelly-shadow);
+  box-sizing: border-box;
+}
+
+.code-slot {
+  width: 68px;
+  height: 56px;
+  min-width: 64px;
+  min-height: 52px;
+  border: 3px dashed #94A3B8;
+  border-radius: 16px;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1E293B;
+  box-shadow: var(--jelly-shadow);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.code-slot.filled.decoded {
+  border-style: solid;
+  border-color: #10B981;
+  background: #ECFDF5;
+  color: #047857;
+}
+
+.kode-keypad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.choice-btn.keypad-btn {
+  min-width: 72px;
+  min-height: 72px;
+  border-radius: 22px;
+  border: 3.5px solid var(--slate-dark);
+  background: #FFFFFF;
+  box-shadow: var(--jelly-shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--slate-dark);
+  transition: transform 0.12s var(--spring-bounce), box-shadow 0.12s ease;
+  box-sizing: border-box;
+}
+
+.choice-btn.keypad-btn:active {
+  transform: translateY(4px) scale(1.02, 0.95);
+  box-shadow: var(--jelly-shadow-active);
+}
+
+.keypad-backspace {
+  background: #FEE2E2 !important;
+  border-color: #DC2626 !important;
+  color: #DC2626 !important;
+}
+
+.secret-reward-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 1001;
+  animation: fadeIn 0.25s ease;
+}
+
+.reward-pop {
+  animation: rewardBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes rewardBounce {
+  0% { transform: scale(0.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.reward-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #FEF08A;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   12. Engine Beda (Cari yang Berbeda / Visual Discrimination) - World 5
+   ========================================================================== */
+.engine-beda {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.beda-question-title {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--slate-dark);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.beda-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.choice-btn.beda-card.beda-btn {
+  min-width: 96px;
+  min-height: 96px;
+  padding: 12px;
+  border-radius: 24px;
+  border: 3.5px solid var(--slate-dark);
+  background: #FFFFFF;
+  box-shadow: var(--jelly-shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s var(--spring-bounce), box-shadow 0.12s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.choice-btn.beda-card.beda-btn:active {
+  transform: translateY(4px) scale(1.02, 0.95);
+  box-shadow: var(--jelly-shadow-active);
+}
+
+.choice-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.glow-spot {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.35), var(--jelly-shadow) !important;
+  background: #ECFDF5 !important;
+}
+
+/* ==========================================================================
+   13. Engine Jumlah (Visual Math & Dynamic Balance Scale) - World 5
+   ========================================================================== */
+.engine-jumlah {
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.balance-stage {
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.balance-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.pan-touch-zone {
+  position: absolute;
+  width: 130px;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-sizing: border-box;
+}
+
+.pan-touch-zone.left-pan {
+  left: 6%;
+}
+
+.pan-touch-zone.right-pan {
+  right: 6%;
+}
+
+.pan-badge {
+  background: #1E293B;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.pan-items-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+}
+
+.pan-fruit-item {
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.item-bounce {
+  animation: itemHop 0.35s ease;
+}
+
+@keyframes itemHop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px) scale(1.15); }
+  100% { transform: translateY(0); }
+}
+
+.balance-prompt-text,
+.math-prompt-text {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--slate-dark);
+  text-align: center;
+}
+
+.balance-options-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.choice-btn.pan-choice-btn {
+  min-width: 140px;
+  min-height: 64px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 3.5px solid var(--slate-dark);
+  background: #FFFFFF;
+  box-shadow: var(--jelly-shadow);
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: transform 0.12s var(--spring-bounce), box-shadow 0.12s ease;
+  box-sizing: border-box;
+}
+
+.choice-btn.pan-choice-btn:active {
+  transform: translateY(4px) scale(1.02, 0.95);
+  box-shadow: var(--jelly-shadow-active);
+}
+
+.math-groups-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.count-box {
+  min-width: 90px;
+  min-height: 90px;
+  padding: 10px 14px;
+  border: 3.5px solid var(--slate-dark);
+  border-radius: 22px;
+  background: #FFFFFF;
+  box-shadow: var(--jelly-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.count-fruit-item {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-count-label {
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--slate-dark);
+}
+
+.math-op-bubble {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #7C3AED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mystery-q {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #8B5CF6;
+}
+
+.math-options-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.choice-btn.math-choice-btn {
+  min-width: 76px;
+  min-height: 76px;
+  border-radius: 22px;
+  border: 3.5px solid var(--slate-dark);
+  background: #FFFFFF;
+  box-shadow: var(--jelly-shadow);
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--slate-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s var(--spring-bounce), box-shadow 0.12s ease;
+  box-sizing: border-box;
+}
+
+.choice-btn.math-choice-btn:active {
+  transform: translateY(4px) scale(1.02, 0.95);
+  box-shadow: var(--jelly-shadow-active);
+}
+
+/* ==========================================================================
    Modals & Dialogs (Victory, Certificate, Parental Gate)
    ========================================================================== */
 .modal-overlay {
@@ -2610,6 +3208,63 @@ html, body {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(-2.5deg) scale(1.01); }
   75% { transform: rotate(2.5deg) scale(0.99); }
+}
+
+/* 5. Triumphant Celebrate Jump */
+.spidey-mascot.celebrate_jump,
+.spideybot.celebrate_jump,
+.mascot-companion.celebrate_jump {
+  animation: mascotCelebrateJump 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+@keyframes mascotCelebrateJump {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  35% { transform: translateY(-16px) scale(0.92, 1.08); }
+  65% { transform: translateY(-4px) scale(1.05, 0.95); }
+}
+
+/* 6. Lightbulb Epiphany Eureka */
+.spidey-mascot.eureka,
+.spideybot.eureka,
+.mascot-companion.eureka {
+  animation: mascotEureka 1.8s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+@keyframes mascotEureka {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.05); }
+}
+
+/* 7. Curious Inquisitive Head Tilt */
+.spidey-mascot.curious,
+.spideybot.curious,
+.mascot-companion.curious {
+  animation: mascotCurious 2.4s ease-in-out infinite;
+  transform-origin: 50% 75%;
+  will-change: transform;
+}
+
+@keyframes mascotCurious {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-5deg) translateY(-3px); }
+}
+
+/* 8. Proud Cheerful Puff */
+.spidey-mascot.proud,
+.spideybot.proud,
+.mascot-companion.proud {
+  animation: mascotProud 2.6s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+@keyframes mascotProud {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04, 1.02); }
 }
 
 /* 5. Robot Antenna Beacon Glow */

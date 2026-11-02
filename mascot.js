@@ -5,17 +5,131 @@
 
 export const Mascot = {
   // Spidey Cilik - Toddler superhero guide with chubby anatomy & expressive anime eyes
-  hero(size = 120, pose = 'wave') {
+  hero(size = 120, pose = 'wave', costume = 'default') {
     const isHappy = pose === 'happy';
     const isCheer = pose === 'cheer' || pose === 'cheering';
     const isThink = pose === 'think' || pose === 'thinking';
     const isEncourage = pose === 'encourage' || pose === 'encouraging';
     const isIdle = pose === 'idle';
+    const isCelebrateJump = pose === 'celebrate_jump';
+    const isEureka = pose === 'eureka';
+    const isCurious = pose === 'curious';
+    const isProud = pose === 'proud';
 
     let leftArm, rightArm, hands, extraAccents = '';
     let leftEyePupil, rightEyePupil, mouthPath;
 
-    if (isCheer) {
+    if (isCelebrateJump) {
+      // High victory leap with dual arms stretched and energetic confetti
+      leftArm = '<path d="M 35 66 Q 14 38 18 16" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      rightArm = '<path d="M 85 66 Q 106 38 102 16" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      hands = `
+        <circle cx="18" cy="16" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+        <circle cx="102" cy="16" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+      `;
+      extraAccents = `
+        <circle cx="14" cy="12" r="3" fill="#F43F5E"/>
+        <circle cx="106" cy="12" r="3" fill="#3B82F6"/>
+        <circle cx="28" cy="8" r="2.5" fill="#FBBF24"/>
+        <circle cx="92" cy="8" r="2.5" fill="#10B981"/>
+        <polygon points="12,28 14,24 18,26 15,29 16,33 12,31 8,33 10,29" fill="#FBBF24"/>
+        <polygon points="108,28 110,24 114,26 111,29 112,33 108,31 104,33 106,29" fill="#FBBF24"/>
+      `;
+      leftEyePupil = `
+        <ellipse cx="44" cy="37" rx="5" ry="5.5" fill="url(#spideyEyeGrad)"/>
+        <circle cx="43" cy="34" r="2.2" fill="#FFFFFF"/>
+        <circle cx="46" cy="39" r="1.2" fill="#FFFFFF"/>
+      `;
+      rightEyePupil = `
+        <ellipse cx="76" cy="37" rx="5" ry="5.5" fill="url(#spideyEyeGrad)"/>
+        <circle cx="75" cy="34" r="2.2" fill="#FFFFFF"/>
+        <circle cx="78" cy="39" r="1.2" fill="#FFFFFF"/>
+      `;
+      mouthPath = `
+        <path d="M 52 50 Q 60 62 68 50 Q 60 52 52 50 Z" fill="#1E293B" stroke="#1E293B" stroke-width="2"/>
+        <path d="M 55 54 Q 60 51 65 54 Q 60 61 55 54 Z" fill="#F43F5E"/>
+      `;
+    } else if (isEureka) {
+      // Epiphany: finger pointing up with glowing lightbulb above head
+      leftArm = '<path d="M 35 66 Q 22 78 26 92" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      rightArm = '<path d="M 85 66 Q 102 46 96 24" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      hands = `
+        <circle cx="26" cy="92" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+        <circle cx="96" cy="24" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+        <path d="M 96 20 L 96 14" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+      `;
+      extraAccents = `
+        <ellipse cx="60" cy="6" rx="6" ry="7" fill="#FDE047" stroke="#CA8A04" stroke-width="1.8"/>
+        <rect x="58" y="13" width="4" height="2.5" rx="1" fill="#94A3B8"/>
+        <path d="M 58 7 Q 60 4 62 7" stroke="#EAB308" stroke-width="1.2" fill="none"/>
+        <line x1="49" y1="4" x2="45" y2="2" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+        <line x1="71" y1="4" x2="75" y2="2" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+      `;
+      leftEyePupil = `
+        <ellipse cx="44" cy="36" rx="5.5" ry="6" fill="url(#spideyEyeGrad)"/>
+        <circle cx="43" cy="33.5" r="2.4" fill="#FFFFFF"/>
+        <circle cx="46.5" cy="38" r="1.3" fill="#FFFFFF"/>
+      `;
+      rightEyePupil = `
+        <ellipse cx="76" cy="36" rx="5.5" ry="6" fill="url(#spideyEyeGrad)"/>
+        <circle cx="75" cy="33.5" r="2.4" fill="#FFFFFF"/>
+        <circle cx="78.5" cy="38" r="1.3" fill="#FFFFFF"/>
+      `;
+      mouthPath = `
+        <ellipse cx="60" cy="52" rx="4.5" ry="5.5" fill="#1E293B"/>
+        <ellipse cx="60" cy="53" rx="3" ry="3.5" fill="#F43F5E"/>
+      `;
+    } else if (isCurious) {
+      // Inquisitive head tilt & question sparkle
+      leftArm = '<path d="M 35 66 Q 22 78 26 92" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      rightArm = '<path d="M 85 66 Q 96 52 70 50" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      hands = `
+        <circle cx="26" cy="92" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+        <circle cx="70" cy="50" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+      `;
+      extraAccents = `
+        <path d="M 94 14 Q 98 8 102 12 Q 102 16 98 18 L 98 21" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <circle cx="98" cy="25" r="1.5" fill="#38BDF8"/>
+        <circle cx="86" cy="18" r="2.5" fill="#93C5FD" opacity="0.8"/>
+      `;
+      leftEyePupil = `
+        <ellipse cx="43" cy="35" rx="5" ry="5.5" fill="url(#spideyEyeGrad)"/>
+        <circle cx="42" cy="33" r="2.2" fill="#FFFFFF"/>
+        <circle cx="45" cy="37" r="1.2" fill="#FFFFFF"/>
+      `;
+      rightEyePupil = `
+        <ellipse cx="75" cy="35" rx="5" ry="5.5" fill="url(#spideyEyeGrad)"/>
+        <circle cx="74" cy="33" r="2.2" fill="#FFFFFF"/>
+        <circle cx="77" cy="37" r="1.2" fill="#FFFFFF"/>
+      `;
+      mouthPath = '<path d="M 55 51 Q 60 55 65 52" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
+    } else if (isProud) {
+      // Superhero hands on hips, puffed chest
+      leftArm = '<path d="M 35 66 Q 18 72 32 82" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      rightArm = '<path d="M 85 66 Q 102 72 88 82" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
+      hands = `
+        <circle cx="32" cy="82" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+        <circle cx="88" cy="82" r="9" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+      `;
+      extraAccents = `
+        <polygon points="14,18 16,13 21,15 17,19 19,24 14,21 9,23 11,18" fill="#FBBF24"/>
+        <polygon points="106,18 108,13 113,15 109,19 111,24 106,21 101,23 103,18" fill="#FBBF24"/>
+      `;
+      leftEyePupil = `
+        <ellipse cx="44" cy="37" rx="5" ry="5.5" fill="url(#spideyEyeGrad)"/>
+        <circle cx="43" cy="34.5" r="2.2" fill="#FFFFFF"/>
+        <circle cx="46" cy="39" r="1.2" fill="#FFFFFF"/>
+      `;
+      rightEyePupil = `
+        <ellipse cx="76" cy="37" rx="5" ry="5.5" fill="url(#spideyEyeGrad)"/>
+        <circle cx="75" cy="34.5" r="2.2" fill="#FFFFFF"/>
+        <circle cx="78" cy="39" r="1.2" fill="#FFFFFF"/>
+      `;
+      mouthPath = `
+        <path d="M 52 49 Q 60 59 68 49" stroke="#1E293B" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <ellipse cx="60" cy="52" rx="3.5" ry="1.8" fill="#F43F5E"/>
+      `;
+    } else if (isCheer) {
       // Both arms stretched triumphantly high up with celebratory golden sparkles
       leftArm = '<path d="M 35 66 Q 14 42 20 18" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
       rightArm = '<path d="M 85 66 Q 106 42 100 18" stroke="#EF4444" stroke-width="12" stroke-linecap="round" fill="none"/>';
@@ -159,8 +273,43 @@ export const Mascot = {
       mouthPath = '<path d="M 53 50 Q 60 57 67 50" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
     }
 
+    // Dynamic Costume & Accessories: Detective Spidey
+    let costumeAccents = '';
+    if (costume === 'detective') {
+      const isMagnifyEye = isThink || isCurious;
+      const magnifyingGlass = isMagnifyEye
+        ? `
+          <!-- Detective Magnifying Glass Over Eye -->
+          <circle cx="76" cy="38" r="14" fill="#38BDF8" fill-opacity="0.25" stroke="#F59E0B" stroke-width="3.5"/>
+          <path d="M 69 32 Q 76 27 83 32" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <line x1="86" y1="48" x2="100" y2="62" stroke="#78350F" stroke-width="5" stroke-linecap="round"/>
+          <line x1="87" y1="49" x2="91" y2="53" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+        `
+        : `
+          <!-- Detective Magnifying Glass In Hand -->
+          <circle cx="102" cy="20" r="12" fill="#38BDF8" fill-opacity="0.25" stroke="#F59E0B" stroke-width="3"/>
+          <path d="M 96 15 Q 102 11 108 15" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <line x1="97" y1="29" x2="93" y2="42" stroke="#78350F" stroke-width="4.5" stroke-linecap="round"/>
+        `;
+
+      costumeAccents = `
+        <!-- Deerstalker Detective Hat -->
+        <path d="M 28 22 Q 60 4 92 22 Q 60 16 28 22 Z" fill="#92400E" stroke="#1E293B" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M 20 24 Q 34 18 48 23" stroke="#78350F" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <path d="M 72 23 Q 86 18 100 24" stroke="#78350F" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <path d="M 55 10 Q 60 6 65 10" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="60" cy="8" r="2.2" fill="#F59E0B"/>
+        <!-- Golden Detective Badge & Lapels -->
+        <polygon points="60,65 65,69 63,75 60,73 57,75 55,69" fill="#FBBF24" stroke="#D97706" stroke-width="1.2"/>
+        <path d="M 45 58 L 52 68 M 75 58 L 68 68" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+        ${magnifyingGlass}
+      `;
+    }
+
+    const costumeClass = costume && costume !== 'default' ? ` costume-${costume}` : '';
+
     return `
-    <svg width="${size}" height="${size}" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="spidey-mascot ${pose}">
+    <svg width="${size}" height="${size}" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="spidey-mascot ${pose}${costumeClass}">
       <defs>
         <radialGradient id="spideyHeadGrad" cx="40%" cy="35%" r="65%">
           <stop offset="0%" stop-color="#FF6B6B"/>
@@ -248,21 +397,75 @@ export const Mascot = {
 
         <!-- Pose Specific Accents & Energy -->
         ${extraAccents}
+
+        <!-- Costume Accents -->
+        ${costumeAccents}
       </g>
     </svg>
     `;
   },
 
   // Spideybot / Bot Sahabat - Volumetric helper robot with glowing antenna & rotating cheek gears
-  robot(size = 90, pose = 'idle') {
+  robot(size = 90, pose = 'idle', costume = 'default') {
     const isCheer = pose === 'cheer' || pose === 'happy';
     const isThink = pose === 'think' || pose === 'thinking';
     const isWave = pose === 'wave';
-    const antennaGlow = isCheer ? '#FBBF24' : (isThink ? '#38BDF8' : (isWave ? '#10B981' : '#EF4444'));
+    const isCelebrateJump = pose === 'celebrate_jump';
+    const isEureka = pose === 'eureka';
+    const isCurious = pose === 'curious';
+    const isProud = pose === 'proud';
+    const antennaGlow = (isCheer || isCelebrateJump) ? '#FBBF24' : ((isThink || isCurious) ? '#38BDF8' : (isEureka ? '#FDE047' : ((isWave || isProud) ? '#10B981' : '#EF4444')));
 
     let eyeVisual, mouthVisual, rocketThruster = '';
 
-    if (isCheer) {
+    if (isCelebrateJump) {
+      // High flying thruster leap with celebratory blinking LED eyes
+      eyeVisual = `
+        <path d="M 33 53 Q 38 46 43 53" stroke="#22D3EE" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M 57 53 Q 62 46 67 53" stroke="#22D3EE" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      `;
+      mouthVisual = `
+        <path d="M 43 72 Q 50 81 57 72" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M 45 73 Q 50 79 55 73" stroke="#F43F5E" stroke-width="2" stroke-linecap="round" fill="none"/>
+      `;
+      rocketThruster = `
+        <ellipse cx="50" cy="92" rx="16" ry="5" fill="#F97316" opacity="0.6"/>
+        <ellipse cx="50" cy="90" rx="9" ry="3" fill="#FBBF24"/>
+      `;
+    } else if (isEureka) {
+      // Epiphany: full digital radar display and wide smiling screen
+      eyeVisual = `
+        <ellipse cx="38" cy="53" rx="5" ry="6" fill="#22D3EE"/>
+        <circle cx="36.5" cy="50.5" r="2.2" fill="#FFFFFF"/>
+        <circle cx="40" cy="55" r="1.2" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="53" rx="5" ry="6" fill="#22D3EE"/>
+        <circle cx="60.5" cy="50.5" r="2.2" fill="#FFFFFF"/>
+        <circle cx="64" cy="55" r="1.2" fill="#FFFFFF"/>
+      `;
+      mouthVisual = '<path d="M 43 72 Q 50 80 57 72" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none"/>';
+      rocketThruster = '<ellipse cx="50" cy="92" rx="26" ry="4" fill="#1E293B" opacity="0.12"/>';
+    } else if (isCurious) {
+      // Curious radar ping sweep
+      eyeVisual = `
+        <ellipse cx="38" cy="51" rx="4.5" ry="5.5" fill="#38BDF8"/>
+        <circle cx="37" cy="49" r="1.8" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="51" rx="4.5" ry="5.5" fill="#38BDF8"/>
+        <circle cx="61" cy="49" r="1.8" fill="#FFFFFF"/>
+        <path d="M 45 49 Q 50 46 55 49" stroke="#22D3EE" stroke-width="1.5" stroke-dasharray="2 1"/>
+      `;
+      mouthVisual = '<path d="M 46 73 Q 50 76 54 73" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
+      rocketThruster = '<ellipse cx="50" cy="92" rx="26" ry="4" fill="#1E293B" opacity="0.12"/>';
+    } else if (isProud) {
+      // Confident digital posture
+      eyeVisual = `
+        <ellipse cx="38" cy="53" rx="5" ry="6" fill="#22D3EE"/>
+        <circle cx="36.5" cy="50.5" r="2.2" fill="#FFFFFF"/>
+        <ellipse cx="62" cy="53" rx="5" ry="6" fill="#22D3EE"/>
+        <circle cx="60.5" cy="50.5" r="2.2" fill="#FFFFFF"/>
+      `;
+      mouthVisual = '<path d="M 42 72 Q 50 78 58 72" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none"/>';
+      rocketThruster = '<ellipse cx="50" cy="92" rx="28" ry="4" fill="#1E293B" opacity="0.14"/>';
+    } else if (isCheer) {
       // Joyful digital LED arcs (^ ^) & rocket thruster glow
       eyeVisual = `
         <path d="M 33 54 Q 38 48 43 54" stroke="#22D3EE" stroke-width="3.2" stroke-linecap="round" fill="none"/>
@@ -303,8 +506,10 @@ export const Mascot = {
       rocketThruster = '<ellipse cx="50" cy="92" rx="26" ry="4" fill="#1E293B" opacity="0.12"/>';
     }
 
+    const costumeClass = costume && costume !== 'default' ? ` costume-${costume}` : '';
+
     return `
-    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="spideybot ${pose}">
+    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="spideybot ${pose}${costumeClass}">
       <defs>
         <radialGradient id="botDomeGrad" cx="38%" cy="32%" r="65%">
           <stop offset="0%" stop-color="#BAE6FD"/>
@@ -362,14 +567,80 @@ export const Mascot = {
   },
 
   // Animal Companion 1: Kucing Ceria (Cheerful Kitten) - World 1 (Hutan Satwa 🌳)
-  cat(size = 100, pose = 'idle') {
+  cat(size = 100, pose = 'idle', costume = 'default') {
     const isCheer = pose === 'cheer' || pose === 'happy';
     const isThink = pose === 'think' || pose === 'thinking';
     const isWave = pose === 'wave';
+    const isCelebrateJump = pose === 'celebrate_jump';
+    const isEureka = pose === 'eureka';
+    const isCurious = pose === 'curious';
+    const isProud = pose === 'proud';
 
     let pawsMarkup, mouthMarkup, accentsMarkup = '';
 
-    if (isCheer) {
+    if (isCelebrateJump) {
+      // High leap with celebratory confetti
+      pawsMarkup = `
+        <ellipse cx="26" cy="44" rx="7" ry="9" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+        <circle cx="26" cy="42" r="3" fill="#FCA5A5"/>
+        <circle cx="23" cy="37" r="1.5" fill="#FCA5A5"/>
+        <circle cx="26" cy="35" r="1.5" fill="#FCA5A5"/>
+        <circle cx="29" cy="37" r="1.5" fill="#FCA5A5"/>
+
+        <ellipse cx="74" cy="44" rx="7" ry="9" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+        <circle cx="74" cy="42" r="3" fill="#FCA5A5"/>
+        <circle cx="71" cy="37" r="1.5" fill="#FCA5A5"/>
+        <circle cx="74" cy="35" r="1.5" fill="#FCA5A5"/>
+        <circle cx="77" cy="37" r="1.5" fill="#FCA5A5"/>
+      `;
+      mouthMarkup = `
+        <path d="M 46 49 Q 50 57 54 49 Z" fill="#1E293B"/>
+        <ellipse cx="50" cy="53" rx="2.5" ry="1.5" fill="#F472B6"/>
+      `;
+      accentsMarkup = `
+        <polygon points="14,18 16,13 21,15 17,19 19,24 14,21 9,23 11,18" fill="#FBBF24"/>
+        <polygon points="86,18 88,13 93,15 89,19 91,24 86,21 81,23 83,18" fill="#F472B6"/>
+        <circle cx="20" cy="30" r="2" fill="#FEF08A"/>
+        <circle cx="80" cy="30" r="2" fill="#FEF08A"/>
+      `;
+    } else if (isEureka) {
+      // Epiphany: paw raised pointing up with bright gold star
+      pawsMarkup = `
+        <ellipse cx="36" cy="80" rx="6" ry="7" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="76" cy="46" rx="7" ry="9" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+        <circle cx="76" cy="44" r="3" fill="#FCA5A5"/>
+      `;
+      mouthMarkup = `
+        <ellipse cx="50" cy="51" rx="3.5" ry="4" fill="#1E293B"/>
+        <ellipse cx="50" cy="52" rx="2" ry="2.2" fill="#F472B6"/>
+      `;
+      accentsMarkup = `
+        <polygon points="50,6 52,11 57,11 53,14 55,19 50,16 45,19 47,14 43,11 48,11" fill="#FBBF24" stroke="#D97706" stroke-width="0.8"/>
+        <circle cx="50" cy="12" r="1.5" fill="#FEF08A"/>
+      `;
+    } else if (isCurious) {
+      // Inquisitive head tilt and paw touching whiskers
+      pawsMarkup = `
+        <ellipse cx="36" cy="80" rx="6" ry="7" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="66" cy="56" rx="6" ry="7" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = '<path d="M 45 49 Q 50 53 55 49" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
+      accentsMarkup = `
+        <path d="M 80 16 Q 84 10 88 14 Q 88 18 84 20 L 84 22" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="84" cy="25" r="1.2" fill="#FBBF24"/>
+      `;
+    } else if (isProud) {
+      // Proud stance with paws on hips
+      pawsMarkup = `
+        <ellipse cx="32" cy="78" rx="6" ry="7" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="68" cy="78" rx="6" ry="7" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = '<path d="M 44 48 Q 47 52 50 49 Q 53 52 56 48" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
+      accentsMarkup = `
+        <polygon points="18,22 20,18 24,19 21,23 23,27 18,25 14,26 16,22" fill="#FBBF24"/>
+        <polygon points="82,22 84,18 88,19 85,23 87,27 82,25 78,26 80,22" fill="#FBBF24"/>
+      `;
+    } else if (isCheer) {
       // Both paws raised high showing pink paw pads, golden sparkles
       pawsMarkup = `
         <ellipse cx="28" cy="48" rx="7" ry="9" fill="url(#catCoatGrad)" stroke="#1E293B" stroke-width="3"/>
@@ -424,8 +695,25 @@ export const Mascot = {
       mouthMarkup = '<path d="M 44 49 Q 47 52 50 49 Q 53 52 56 49" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
     }
 
+    // Dynamic Costume & Accessories: Whimsical Cat
+    let costumeAccents = '';
+    if (costume === 'whimsical') {
+      costumeAccents = `
+        <!-- Whimsical Wizard Hat -->
+        <polygon points="62,22 82,2 78,25" fill="#8B5CF6" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="82,2 84,0 86,2 88,1 87,4" fill="#FBBF24"/>
+        <circle cx="73" cy="18" r="1.5" fill="#FEF08A"/>
+        <circle cx="76" cy="12" r="1.5" fill="#FEF08A"/>
+        <!-- Celestial Star Charm Collar -->
+        <path d="M 34 58 Q 50 66 66 58" stroke="#EC4899" stroke-width="2.5" fill="none"/>
+        <polygon points="50,62 52,67 57,67 53,70 55,75 50,72 45,75 47,70 43,67 48,67" fill="#FBBF24" stroke="#D97706" stroke-width="0.8"/>
+      `;
+    }
+
+    const costumeClass = costume && costume !== 'default' ? ` costume-${costume}` : '';
+
     return `
-    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mascot-companion cat ${pose}">
+    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mascot-companion cat ${pose}${costumeClass}">
       <defs>
         <radialGradient id="catCoatGrad" cx="35%" cy="30%" r="70%">
           <stop offset="0%" stop-color="#FED7AA"/>
@@ -498,19 +786,86 @@ export const Mascot = {
 
       <!-- Accents -->
       ${accentsMarkup}
+
+      <!-- Costume Accents -->
+      ${costumeAccents}
     </svg>
     `;
   },
 
   // Animal Companion 2: Kelinci Lincah (Bouncy Bunny) - Cross-world agility buddy
-  bunny(size = 100, pose = 'idle') {
+  bunny(size = 100, pose = 'idle', costume = 'default') {
     const isCheer = pose === 'cheer' || pose === 'happy';
     const isThink = pose === 'think' || pose === 'thinking';
     const isWave = pose === 'wave';
+    const isCelebrateJump = pose === 'celebrate_jump';
+    const isEureka = pose === 'eureka';
+    const isCurious = pose === 'curious';
+    const isProud = pose === 'proud';
 
     let pawsMarkup, mouthMarkup, accentsMarkup = '';
 
-    if (isCheer) {
+    if (isCelebrateJump) {
+      // High leap with perked ears and celebratory confetti
+      pawsMarkup = `
+        <ellipse cx="24" cy="50" rx="6" ry="8" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="76" cy="50" rx="6" ry="8" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = `
+        <path d="M 45 53 Q 50 62 55 53 Z" fill="#1E293B"/>
+        <ellipse cx="50" cy="58" rx="2.5" ry="1.5" fill="#F472B6"/>
+        <rect x="48.5" y="53" width="3" height="3.2" rx="1" fill="#FFFFFF"/>
+      `;
+      accentsMarkup = `
+        <polygon points="14,20 16,15 21,17 17,21 19,26 14,23 9,25 11,20" fill="#C084FC"/>
+        <polygon points="86,20 88,15 93,17 89,21 91,26 86,23 81,25 83,20" fill="#FBBF24"/>
+        <circle cx="18" cy="32" r="2.2" fill="#FEF08A"/>
+        <circle cx="82" cy="32" r="2.2" fill="#FEF08A"/>
+      `;
+    } else if (isEureka) {
+      // Epiphany: paw raised with bright epiphany spark
+      pawsMarkup = `
+        <ellipse cx="38" cy="80" rx="6" ry="7" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="76" cy="46" rx="7" ry="8" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = `
+        <ellipse cx="50" cy="55" rx="3.5" ry="4" fill="#1E293B"/>
+        <rect x="48.5" y="53" width="3" height="2.5" rx="1" fill="#FFFFFF"/>
+        <ellipse cx="50" cy="57" rx="2" ry="1.5" fill="#F472B6"/>
+      `;
+      accentsMarkup = `
+        <polygon points="50,4 52,9 57,9 53,12 55,17 50,14 45,17 47,12 43,9 48,9" fill="#FBBF24" stroke="#D97706" stroke-width="0.8"/>
+        <circle cx="50" cy="10" r="1.5" fill="#FEF08A"/>
+      `;
+    } else if (isCurious) {
+      // Inquisitive head tilt and paw on chin
+      pawsMarkup = `
+        <ellipse cx="38" cy="80" rx="6" ry="7" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="64" cy="58" rx="6" ry="7" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = `
+        <path d="M 45 53 Q 50 56 55 53" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <rect x="48.5" y="54" width="3" height="2.5" rx="1" fill="#FFFFFF" stroke="#1E293B" stroke-width="1"/>
+      `;
+      accentsMarkup = `
+        <path d="M 82 14 Q 86 8 90 12 Q 90 16 86 18 L 86 20" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="86" cy="23" r="1.2" fill="#8B5CF6"/>
+      `;
+    } else if (isProud) {
+      // Confident stance with paws on hips
+      pawsMarkup = `
+        <ellipse cx="32" cy="74" rx="6" ry="6" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="68" cy="74" rx="6" ry="6" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = `
+        <path d="M 45 52 Q 50 57 55 52" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <rect x="48.5" y="53" width="3" height="2.5" rx="1" fill="#FFFFFF" stroke="#1E293B" stroke-width="1"/>
+      `;
+      accentsMarkup = `
+        <polygon points="16,22 18,17 23,19 19,23 21,28 16,25 11,27 13,22" fill="#FBBF24"/>
+        <polygon points="84,22 86,17 91,19 87,23 89,28 84,25 79,27 81,22" fill="#C084FC"/>
+      `;
+    } else if (isCheer) {
       // Leaping victory bounce, both ears perked
       pawsMarkup = `
         <ellipse cx="26" cy="54" rx="6" ry="8" fill="url(#bunnyFurGrad)" stroke="#1E293B" stroke-width="3"/>
@@ -562,8 +917,26 @@ export const Mascot = {
       `;
     }
 
+    // Dynamic Costume & Accessories: Explorer Bunny
+    let costumeAccents = '';
+    if (costume === 'explorer') {
+      costumeAccents = `
+        <!-- Safari Pith Helmet -->
+        <path d="M 34 26 Q 50 12 66 26 Z" fill="#FDE68A" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="50" cy="26" rx="20" ry="5" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+        <path d="M 35 24 Q 50 20 65 24" stroke="#047857" stroke-width="2.8" fill="none"/>
+        <!-- Crossbody Satchel & Compass Badge -->
+        <path d="M 32 60 L 68 84" stroke="#92400E" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="72" r="5" fill="#FBBF24" stroke="#B45309" stroke-width="1.5"/>
+        <line x1="50" y1="69" x2="50" y2="75" stroke="#EF4444" stroke-width="1.5"/>
+        <line x1="47" y1="72" x2="53" y2="72" stroke="#EF4444" stroke-width="1.5"/>
+      `;
+    }
+
+    const costumeClass = costume && costume !== 'default' ? ` costume-${costume}` : '';
+
     return `
-    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mascot-companion bunny ${pose}">
+    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mascot-companion bunny ${pose}${costumeClass}">
       <defs>
         <radialGradient id="bunnyFurGrad" cx="35%" cy="30%" r="70%">
           <stop offset="0%" stop-color="#FFFFFF"/>
@@ -629,19 +1002,80 @@ export const Mascot = {
 
       <!-- Accents -->
       ${accentsMarkup}
+
+      <!-- Costume Accents -->
+      ${costumeAccents}
     </svg>
     `;
   },
 
   // Animal Companion 3: Panda Pintar (Smart Panda) - World 2 (Kota Angka 🔢)
-  panda(size = 100, pose = 'idle') {
+  panda(size = 100, pose = 'idle', costume = 'default') {
     const isCheer = pose === 'cheer' || pose === 'happy';
     const isThink = pose === 'think' || pose === 'thinking';
     const isWave = pose === 'wave';
+    const isCelebrateJump = pose === 'celebrate_jump';
+    const isEureka = pose === 'eureka';
+    const isCurious = pose === 'curious';
+    const isProud = pose === 'proud';
 
     let pawsMarkup, mouthMarkup, accentsMarkup = '';
 
-    if (isCheer) {
+    if (isCelebrateJump) {
+      // High leap with math celebration stars
+      pawsMarkup = `
+        <ellipse cx="22" cy="46" rx="7" ry="9" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="78" cy="46" rx="7" ry="9" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = `
+        <path d="M 45 54 Q 50 63 55 54 Z" fill="#1E293B"/>
+        <ellipse cx="50" cy="59" rx="2.5" ry="1.5" fill="#F43F5E"/>
+      `;
+      accentsMarkup = `
+        <text x="10" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="900" fill="#FBBF24" stroke="#D97706" stroke-width="0.5">3</text>
+        <text x="84" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="900" fill="#38BDF8" stroke="#0284C7" stroke-width="0.5">+</text>
+        <polygon points="50,12 52,7 57,9 53,13 55,18 50,15 45,17 47,12" fill="#FBBF24"/>
+      `;
+    } else if (isEureka) {
+      // Epiphany: paw raised with glowing epiphany bulb
+      pawsMarkup = `
+        <ellipse cx="36" cy="80" rx="6" ry="7" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="78" cy="44" rx="7" ry="9" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = `
+        <ellipse cx="50" cy="56" rx="3.5" ry="4" fill="#1E293B"/>
+        <ellipse cx="50" cy="57" rx="2" ry="2" fill="#F43F5E"/>
+      `;
+      accentsMarkup = `
+        <ellipse cx="50" cy="6" rx="5.5" ry="6.5" fill="#FDE047" stroke="#CA8A04" stroke-width="1.8"/>
+        <rect x="48" y="12" width="4" height="2" rx="0.8" fill="#94A3B8"/>
+        <path d="M 48 7 Q 50 4 52 7" stroke="#EAB308" stroke-width="1.2" fill="none"/>
+        <line x1="40" y1="4" x2="36" y2="2" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+        <line x1="60" y1="4" x2="64" y2="2" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+      `;
+    } else if (isCurious) {
+      // Inquisitive head tilt, looking over glasses
+      pawsMarkup = `
+        <ellipse cx="36" cy="80" rx="6" ry="7" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="64" cy="50" rx="6" ry="7" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = '<path d="M 45 54 Q 50 57 55 54" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
+      accentsMarkup = `
+        <path d="M 82 14 Q 86 8 90 12 Q 90 16 86 18 L 86 20" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="86" cy="23" r="1.2" fill="#F59E0B"/>
+      `;
+    } else if (isProud) {
+      // Confident stance with paws on hips
+      pawsMarkup = `
+        <ellipse cx="30" cy="76" rx="7" ry="7" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+        <ellipse cx="70" cy="76" rx="7" ry="7" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
+      `;
+      mouthMarkup = '<path d="M 44 54 Q 50 60 56 54" stroke="#1E293B" stroke-width="2.8" stroke-linecap="round" fill="none"/>';
+      accentsMarkup = `
+        <polygon points="16,20 18,15 23,17 19,21 21,26 16,23 11,25 13,20" fill="#FBBF24"/>
+        <polygon points="84,20 86,15 91,17 87,21 89,26 84,23 79,25 81,20" fill="#FBBF24"/>
+      `;
+    } else if (isCheer) {
       // Paws high up with math stars
       pawsMarkup = `
         <ellipse cx="24" cy="50" rx="7" ry="9" fill="url(#pandaBlackGrad)" stroke="#1E293B" stroke-width="3"/>
@@ -684,8 +1118,38 @@ export const Mascot = {
       mouthMarkup = '<path d="M 45 54 Q 50 58 55 54" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>';
     }
 
+    // Dynamic Costume & Accessories: Scientist Panda
+    let eyewearMarkup = '';
+    let costumeAccents = '';
+    if (costume === 'scientist') {
+      eyewearMarkup = `
+        <!-- Round Metallic Lab Goggles with Chemical Reflection -->
+        <path d="M 18 42 Q 50 36 82 42" stroke="#334155" stroke-width="3.5" fill="none"/>
+        <circle cx="36" cy="42" r="12" fill="#38BDF8" fill-opacity="0.25" stroke="#0284C7" stroke-width="3"/>
+        <circle cx="64" cy="42" r="12" fill="#38BDF8" fill-opacity="0.25" stroke="#0284C7" stroke-width="3"/>
+        <path d="M 29 36 L 34 32 M 57 36 L 62 32" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+      `;
+      costumeAccents = `
+        <!-- Lab Coat Collar & Pins -->
+        <path d="M 34 64 L 46 76 L 42 78 M 66 64 L 54 76 L 58 78" stroke="#E2E8F0" stroke-width="2.8" fill="#FFFFFF"/>
+        <polygon points="50,71 47,77 53,77" fill="#10B981" stroke="#047857" stroke-width="1.2"/>
+        <line x1="38" y1="72" x2="38" y2="67" stroke="#EF4444" stroke-width="1.5"/>
+        <line x1="41" y1="72" x2="41" y2="66" stroke="#3B82F6" stroke-width="1.5"/>
+      `;
+    } else {
+      eyewearMarkup = `
+        <!-- Chunky Golden Glasses -->
+        <circle cx="36" cy="42" r="11" fill="none" stroke="#FBBF24" stroke-width="3"/>
+        <circle cx="64" cy="42" r="11" fill="none" stroke="#FBBF24" stroke-width="3"/>
+        <path d="M 47 41 Q 50 39 53 41" stroke="#FBBF24" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M 30 35 L 34 32 M 58 35 L 62 32" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+      `;
+    }
+
+    const costumeClass = costume && costume !== 'default' ? ` costume-${costume}` : '';
+
     return `
-    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mascot-companion panda ${pose}">
+    <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mascot-companion panda ${pose}${costumeClass}">
       <defs>
         <radialGradient id="pandaWhiteGrad" cx="35%" cy="30%" r="70%">
           <stop offset="0%" stop-color="#FFFFFF"/>
@@ -731,11 +1195,8 @@ export const Mascot = {
       <circle cx="61.5" cy="40" r="1.8" fill="#FFFFFF"/>
       <circle cx="64.5" cy="44" r="1" fill="#FFFFFF"/>
 
-      <!-- Chunky Golden Glasses -->
-      <circle cx="36" cy="42" r="11" fill="none" stroke="#FBBF24" stroke-width="3"/>
-      <circle cx="64" cy="42" r="11" fill="none" stroke="#FBBF24" stroke-width="3"/>
-      <path d="M 47 41 Q 50 39 53 41" stroke="#FBBF24" stroke-width="3" stroke-linecap="round" fill="none"/>
-      <path d="M 30 35 L 34 32 M 58 35 L 62 32" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+      <!-- Eyewear: Golden Glasses or Lab Goggles -->
+      ${eyewearMarkup}
 
       <!-- Rosy Cheeks -->
       <ellipse cx="25" cy="51" rx="4.5" ry="2.8" fill="#FDA4AF" opacity="0.7"/>
@@ -750,28 +1211,74 @@ export const Mascot = {
 
       <!-- Accents -->
       ${accentsMarkup}
+
+      <!-- Costume Accents -->
+      ${costumeAccents}
     </svg>
     `;
   },
 
+  // Dynamic Costume Helper Wrappers
+  detectiveHero(size = 120, pose = 'wave') {
+    return this.hero(size, pose, 'detective');
+  },
+
+  explorerBunny(size = 100, pose = 'idle') {
+    return this.bunny(size, pose, 'explorer');
+  },
+
+  scientistPanda(size = 100, pose = 'idle') {
+    return this.panda(size, pose, 'scientist');
+  },
+
+  whimsicalCat(size = 100, pose = 'idle') {
+    return this.cat(size, pose, 'whimsical');
+  },
+
+  // Randomized Victory Celebration Helper
+  randomCelebration(characterId = 'hero', size = 120, costume = 'default') {
+    const celebrationPoses = ['cheer', 'happy', 'celebrate_jump', 'eureka'];
+    const selectedPose = celebrationPoses[Math.floor(Math.random() * celebrationPoses.length)];
+    return this.companion(characterId, size, selectedPose, costume);
+  },
+
+  // Dynamic Costume Catalog for World 5 & Special Celebrations
+  costumes: [
+    { id: 'detective', name: 'Detektif Spidey', character: 'spidey', worldId: 'puzzle' },
+    { id: 'explorer',  name: 'Explorer Bunny',  character: 'bunny',  worldId: 'puzzle' },
+    { id: 'scientist', name: 'Scientist Panda', character: 'panda',  worldId: 'angka' },
+    { id: 'whimsical', name: 'Whimsical Cat',   character: 'cat',    worldId: 'hewan' }
+  ],
+
   // Universal Polymorphic Companion Dispatcher
-  companion(nameOrId = 'hero', size = 100, pose = 'idle') {
+  companion(nameOrId = 'hero', size = 100, pose = 'idle', costume = 'default') {
     const key = String(nameOrId).toLowerCase().trim();
-    if (key === 'bot' || key === 'robot' || key === 'spideybot') return this.robot(size, pose);
-    if (key === 'cat' || key === 'kucing') return this.cat(size, pose);
-    if (key === 'bunny' || key === 'kelinci' || key === 'rabbit') return this.bunny(size, pose);
-    if (key === 'panda') return this.panda(size, pose);
-    return this.hero(size, pose);
+    if (key === 'bot' || key === 'robot' || key === 'spideybot') return this.robot(size, pose, costume);
+    if (key === 'cat' || key === 'kucing') return this.cat(size, pose, costume);
+    if (key === 'bunny' || key === 'kelinci' || key === 'rabbit') return this.bunny(size, pose, costume);
+    if (key === 'panda') return this.panda(size, pose, costume);
+    if (key === 'detective' || key === 'detectivespidey') return this.detectiveHero(size, pose);
+    if (key === 'explorer' || key === 'explorerbunny') return this.explorerBunny(size, pose);
+    if (key === 'scientist' || key === 'scientistpanda') return this.scientistPanda(size, pose);
+    if (key === 'whimsical' || key === 'whimsicalcat') return this.whimsicalCat(size, pose);
+    return this.hero(size, pose, costume);
   },
 
   // World Companion Auto-Resolver
-  forWorld(worldId, size = 90, pose = 'idle') {
+  forWorld(worldId, size = 90, pose = 'idle', costume) {
     switch (String(worldId).toLowerCase().trim()) {
-      case 'hewan':  return this.cat(size, pose);
-      case 'angka':  return this.panda(size, pose);
-      case 'spidey': return this.hero(size, pose);
-      case 'koding': return this.robot(size, pose);
-      default:       return this.hero(size, pose);
+      case 'hewan':  return this.cat(size, pose, costume || 'default');
+      case 'angka':  return this.panda(size, pose, costume || 'default');
+      case 'spidey': return this.hero(size, pose, costume || 'default');
+      case 'koding': return this.robot(size, pose, costume || 'default');
+      case 'puzzle':
+      case 'tekateki':
+      case 'teka-teki':
+        if (costume === 'explorer' || costume === 'bunny') {
+          return this.explorerBunny(size, pose);
+        }
+        return this.detectiveHero(size, pose);
+      default:       return this.hero(size, pose, costume || 'default');
     }
   },
 

@@ -457,6 +457,210 @@ await test('6.3 Service Worker registration in index.html or app.js', () => {
 });
 
 // ============================================================================
+// 7. WORLD 5 EXPANSION: 13 ENGINES, 5 WORLDS, PUZZLE SCHEMAS & COSTUMES
+// ============================================================================
+console.log('\n[Suite 7: World 5 Expansion (Engines, Levels, Solvability & Costumes)]');
+
+await test('7.1 Check 25: 13 Game Engines Registered and Supported in Engines Dispatcher', () => {
+  const { Engines } = enginesModule;
+  // Verify all 13 canonical engine methods and dispatch types
+  const expectedEngineMethods = [
+    'renderHubungkan', 'renderLabirin', 'renderPilih', 'renderHubungkanTitik',
+    'renderTebalkan', 'renderMewarnai', 'renderUrutkan', 'renderKodingPanah',
+    'renderMemori', 'renderPola', 'renderKode', 'renderBeda', 'renderJumlah'
+  ];
+  expectedEngineMethods.forEach(fnName => {
+    assert(typeof Engines[fnName] === 'function', `Engines.${fnName} must be a function`);
+  });
+
+  // Verify aliases
+  assert(typeof Engines.renderTitik === 'function', 'Engines.renderTitik alias must exist');
+  assert(typeof Engines.renderPanah === 'function', 'Engines.renderPanah alias must exist');
+  assert(typeof Engines.renderPola === 'function', 'Engines.renderPola must exist');
+  assert(typeof Engines.renderKode === 'function', 'Engines.renderKode must exist');
+  assert(typeof Engines.renderBeda === 'function', 'Engines.renderBeda must exist');
+  assert(typeof Engines.renderJumlah === 'function', 'Engines.renderJumlah must exist');
+
+  // Verify all 13 types in polymorphic dispatch map
+  const engineTypes = [
+    'hubungkan', 'labirin', 'pilih', 'titik', 'tebalkan',
+    'mewarnai', 'urutkan', 'panah', 'memori', 'pola', 'kode', 'beda', 'jumlah'
+  ];
+  assert.strictEqual(engineTypes.length, 13, 'Must define exactly 13 engine types');
+
+  // Verify that all 4 new Kiddo Worksheets engines are registered and callable
+  const newEngines = ['pola', 'kode', 'beda', 'jumlah'];
+  newEngines.forEach(t => {
+    assert(engineTypes.includes(t), `Engine type ${t} must be among registered engine types`);
+  });
+});
+
+await test('7.2 Check 26: 5 Worlds & 91 Levels Distribution Including World 5 (Kiddo Puzzle Lab)', () => {
+  const allWorlds = levelsModule.WORLDS_DB || levelsModule.ALL_WORLDS || levelsModule.WORLDS;
+  const allLevels = levelsModule.LEVELS_DB || levelsModule.ALL_LEVELS || levelsModule.LEVELS;
+
+  assert(Array.isArray(allWorlds), 'allWorlds must be an array');
+  assert.strictEqual(allWorlds.length, 5, `Expected 5 worlds, found ${allWorlds.length}`);
+
+  const worldIds = allWorlds.map(w => w.id);
+  assert(worldIds.includes('hewan'), 'World hewan must exist');
+  assert(worldIds.includes('angka'), 'World angka must exist');
+  assert(worldIds.includes('spidey'), 'World spidey must exist');
+  assert(worldIds.includes('koding'), 'World koding must exist');
+  assert(worldIds.includes('puzzle'), 'World 5 (puzzle) must be defined in WORLDS');
+
+  const puzzleWorld = allWorlds.find(w => w.id === 'puzzle');
+  assert.strictEqual(puzzleWorld.emoji, '🧩', 'World 5 emoji must be 🧩');
+  assert.strictEqual(puzzleWorld.color, '#8B5CF6', 'World 5 color must be #8B5CF6');
+
+  assert(Array.isArray(allLevels), 'allLevels must be an array');
+  assert.strictEqual(allLevels.length, 91, `Expected 91 total levels, found ${allLevels.length}`);
+
+  // World 5 levels check (Levels 76 to 91 = 16 levels)
+  const puzzleLevels = allLevels.filter(lvl => lvl.worldId === 'puzzle');
+  assert.strictEqual(puzzleLevels.length, 16, `Expected 16 levels in World 5, found ${puzzleLevels.length}`);
+
+  const puzzleIds = puzzleLevels.map(l => String(l.id));
+  for (let i = 76; i <= 91; i++) {
+    assert(puzzleIds.includes(String(i)), `Missing World 5 level ID ${i}`);
+  }
+});
+
+await test('7.3 Check 27: World 5 Level Schemas & Algorithmic Solvability Across All 4 Engines', () => {
+  const allLevels = levelsModule.LEVELS_DB || levelsModule.ALL_LEVELS || levelsModule.LEVELS;
+  const puzzleLevels = allLevels.filter(lvl => lvl.worldId === 'puzzle');
+  assert.strictEqual(puzzleLevels.length, 16, 'World 5 must have 16 levels');
+
+  // 1. Pola Engine (76-79)
+  const polaLevels = puzzleLevels.filter(l => l.type === 'pola');
+  assert.strictEqual(polaLevels.length, 4, 'Must have 4 pola levels');
+  polaLevels.forEach(lvl => {
+    assert(lvl.patternType, `Level ${lvl.id} missing patternType`);
+    assert(Array.isArray(lvl.sequence), `Level ${lvl.id} sequence must be array`);
+    assert(Array.isArray(lvl.options), `Level ${lvl.id} options must be array`);
+    assert(lvl.options.includes(lvl.answer), `Level ${lvl.id} options must include answer`);
+    assert.strictEqual(lvl.sequence[lvl.missingIndex], '❓', `Level ${lvl.id} missingIndex must point to ❓`);
+  });
+
+  // 2. Kode Engine (80-83)
+  const kodeLevels = puzzleLevels.filter(l => l.type === 'kode');
+  assert.strictEqual(kodeLevels.length, 4, 'Must have 4 kode levels');
+  kodeLevels.forEach(lvl => {
+    assert(Array.isArray(lvl.cipherKey), `Level ${lvl.id} cipherKey must be array`);
+    assert(Array.isArray(lvl.code), `Level ${lvl.id} code must be array`);
+    assert(Array.isArray(lvl.solution), `Level ${lvl.id} solution must be array`);
+    assert(Array.isArray(lvl.options), `Level ${lvl.id} options must be array`);
+    assert(lvl.secretReward && lvl.rewardEmoji, `Level ${lvl.id} missing reward definition`);
+
+    // Algorithmic solvability: verify cipher bijection
+    const cipherMap = new Map(lvl.cipherKey.map(k => [k.symbol, k.value]));
+    const derivedSolution = lvl.code.map(sym => cipherMap.get(sym));
+    assert.deepStrictEqual(derivedSolution, lvl.solution, `Level ${lvl.id} cipher does not map code to solution`);
+    lvl.solution.forEach(sol => {
+      assert(lvl.options.includes(sol), `Level ${lvl.id} options missing solution token ${sol}`);
+    });
+  });
+
+  // 3. Beda Engine (84-87)
+  const bedaLevels = puzzleLevels.filter(l => l.type === 'beda');
+  assert.strictEqual(bedaLevels.length, 4, 'Must have 4 beda levels');
+  bedaLevels.forEach(lvl => {
+    assert(Array.isArray(lvl.cards) || Array.isArray(lvl.options), `Level ${lvl.id} missing cards/options`);
+    const cardCount = (lvl.cards || lvl.options).length;
+    assert.strictEqual(cardCount, 4, `Level ${lvl.id} must have exactly 4 choices`);
+    const targetIdx = lvl.differentIndex !== undefined ? lvl.differentIndex : lvl.answerIndex;
+    assert(targetIdx >= 0 && targetIdx < 4, `Level ${lvl.id} differentIndex out of range`);
+    assert(lvl.differenceReason, `Level ${lvl.id} missing differenceReason`);
+  });
+
+  // 4. Jumlah Engine (88-91)
+  const jumlahLevels = puzzleLevels.filter(l => l.type === 'jumlah');
+  assert.strictEqual(jumlahLevels.length, 4, 'Must have 4 jumlah levels');
+  jumlahLevels.forEach(lvl => {
+    assert(['addition', 'balance'].includes(lvl.mode), `Level ${lvl.id} invalid mode: ${lvl.mode}`);
+    if (lvl.mode === 'addition') {
+      const expectedSum = lvl.leftGroup.count + lvl.rightGroup.count;
+      assert.strictEqual(expectedSum, lvl.answer, `Level ${lvl.id} math does not balance: ${expectedSum} != ${lvl.answer}`);
+      assert(lvl.options.includes(lvl.answer), `Level ${lvl.id} options missing correct sum`);
+    } else if (lvl.mode === 'balance') {
+      assert(lvl.target === lvl.answer, `Level ${lvl.id} target must match answer`);
+      if (lvl.target === 'left') {
+        assert(lvl.leftGroup.count > lvl.rightGroup.count, `Level ${lvl.id} leftGroup must have more items`);
+      } else {
+        assert(lvl.rightGroup.count > lvl.leftGroup.count, `Level ${lvl.id} rightGroup must have more items`);
+      }
+    }
+  });
+});
+
+await test('7.4 Check 28: Dynamic Mascot Costumes & 4 Celebratory Poses in Mascot', () => {
+  const { Mascot } = mascotModule;
+  // Costumes
+  assert(Array.isArray(Mascot.costumes), 'Mascot.costumes must be an array');
+  assert(Mascot.costumes.length >= 4, `Expected >= 4 costumes, found ${Mascot.costumes.length}`);
+  const costumeIds = Mascot.costumes.map(c => c.id);
+  assert(costumeIds.includes('detective'), 'Mascot missing detective costume');
+  assert(costumeIds.includes('explorer'), 'Mascot missing explorer costume');
+  assert(costumeIds.includes('scientist'), 'Mascot missing scientist costume');
+  assert(costumeIds.includes('whimsical'), 'Mascot missing whimsical costume');
+
+  // Dedicated costume helpers
+  assert(typeof Mascot.detectiveHero === 'function', 'Mascot.detectiveHero must be a function');
+  assert(typeof Mascot.explorerBunny === 'function', 'Mascot.explorerBunny must be a function');
+  assert(typeof Mascot.scientistPanda === 'function', 'Mascot.scientistPanda must be a function');
+  assert(typeof Mascot.whimsicalCat === 'function', 'Mascot.whimsicalCat must be a function');
+
+  // Verify costume SVG markup
+  const detSvg = Mascot.detectiveHero(120, 'wave');
+  assert(detSvg.includes('costume-detective'), 'Detective SVG missing costume-detective class');
+  const expSvg = Mascot.explorerBunny(100, 'idle');
+  assert(expSvg.includes('costume-explorer'), 'Explorer SVG missing costume-explorer class');
+
+  // 4 Celebratory / Puzzle Poses
+  const poses = ['celebrate_jump', 'eureka', 'curious', 'proud'];
+  poses.forEach(p => {
+    const heroPoseSvg = Mascot.hero(100, p);
+    assert(heroPoseSvg.includes(p), `Mascot.hero must generate class for pose ${p}`);
+  });
+
+  // Random celebration helper
+  assert(typeof Mascot.randomCelebration === 'function', 'Mascot.randomCelebration must be a function');
+  const randSvg = Mascot.randomCelebration('hero');
+  assert(randSvg.includes('<svg'), 'randomCelebration must return valid SVG');
+
+  // Mascot.forWorld('puzzle')
+  const puzzleMascot = Mascot.forWorld('puzzle');
+  assert(puzzleMascot.includes('costume-detective') || puzzleMascot.includes('spidey-mascot'), 'forWorld(puzzle) must return detective hero');
+
+  // Squad invariant preservation
+  assert(Array.isArray(Mascot.squad), 'Mascot.squad must be an array');
+  assert.strictEqual(Mascot.squad.length, 5, 'Mascot.squad must retain exactly 5 canonical characters');
+});
+
+await test('7.5 Check 29: Web Audio Procedural Synthesis Cues in SoundSystem', () => {
+  const { sound } = audioModule;
+  // Method existence
+  assert(typeof sound.playSnap === 'function', 'sound.playSnap must be a function');
+  assert(typeof sound.playCipherClick === 'function', 'sound.playCipherClick must be a function');
+  assert(typeof sound.playScaleTilt === 'function', 'sound.playScaleTilt must be a function');
+  assert(typeof sound.playFlourish === 'function', 'sound.playFlourish must be a function');
+
+  // Headless Node.js execution safety (no throws)
+  assert.doesNotThrow(() => sound.playSnap(), 'sound.playSnap() threw in Node.js');
+  assert.doesNotThrow(() => sound.playCipherClick(), 'sound.playCipherClick() threw in Node.js');
+  assert.doesNotThrow(() => sound.playScaleTilt(), 'sound.playScaleTilt() threw in Node.js');
+  assert.doesNotThrow(() => sound.playFlourish(), 'sound.playFlourish() threw in Node.js');
+
+  // Source inspection: dual-harmonic & multi-voice procedural synthesis
+  const audioCode = fs.readFileSync(path.join(__dirname, 'audio.js'), 'utf8');
+  assert(audioCode.includes('playSnap'), 'audio.js must define playSnap');
+  assert(audioCode.includes('playCipherClick'), 'audio.js must define playCipherClick');
+  assert(audioCode.includes('playScaleTilt'), 'audio.js must define playScaleTilt');
+  assert(audioCode.includes('playFlourish'), 'audio.js must define playFlourish');
+  assert(audioCode.includes('sfxEnabled'), 'audio.js must check sfxEnabled toggle');
+});
+
+// ============================================================================
 // SUMMARY & EXIT REPORT
 // ============================================================================
 console.log('\n============================================================');

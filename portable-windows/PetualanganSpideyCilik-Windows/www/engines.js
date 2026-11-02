@@ -1210,9 +1210,728 @@ export const Engines = {
   },
 
   // ==========================================
-  // UNIFIED DISPATCHER
+  // ENGINE 10: POLA (Complete the Pattern / Lengkapi Pola)
+  // Cognitive sequencing (AB, AABB, ABC, ABB) with tap & drag support
   // ==========================================
-  render(container, level, onComplete) {
+  renderPola(arg1, arg2, arg3) {
+    let container, level, onComplete;
+    if (arg1 && arg1.type) {
+      level = arg1; container = arg2; onComplete = arg3;
+    } else {
+      container = arg1; level = arg2; onComplete = arg3;
+    }
+
+    if (!container || !level) return;
+
+    const rawItems = Array.isArray(level.items)
+      ? level.items
+      : [{
+          patternType: level.patternType || 'AB',
+          sequence: level.sequence || ['🍎', '🍌', '🍎', '❓'],
+          missingIndex: level.missingIndex !== undefined ? level.missingIndex : (level.sequence ? level.sequence.indexOf('❓') : 3),
+          answer: level.answer || '🍌',
+          options: level.options || ['🍌', '🍎']
+        }];
+
+    if (rawItems.length === 0) {
+      if (typeof onComplete === 'function') onComplete();
+      return;
+    }
+
+    let currentStep = 0;
+
+    function showStep() {
+      if (currentStep >= rawItems.length) {
+        if (typeof onComplete === 'function') onComplete();
+        return;
+      }
+
+      const item = rawItems[currentStep];
+      const seq = item.sequence || [];
+      const missingIdx = (item.missingIndex !== undefined && item.missingIndex >= 0)
+        ? item.missingIndex
+        : seq.findIndex(s => s === '❓' || (typeof s === 'string' && s.includes('❓')));
+      const activeMissingIdx = missingIdx >= 0 ? missingIdx : seq.length - 1;
+      const expectedAns = item.answer || seq[activeMissingIdx];
+
+      container.innerHTML = `
+        <div class="engine-pola">
+          ${rawItems.length > 1 ? `<div class="step-indicator">Pola ${currentStep + 1} dari ${rawItems.length}</div>` : ''}
+          <div class="pattern-board">
+            <div class="pattern-train" id="patternTrain">
+              ${seq.map((sym, idx) => {
+                if (idx === activeMissingIdx) {
+                  return `
+                    <div class="pattern-item missing-slot pulse-slot" id="missingSlot" data-expected="${expectedAns}">
+                      <span class="slot-question">❓</span>
+                    </div>
+                  `;
+                }
+                return `
+                  <div class="pattern-item filled">
+                    <div class="pattern-visual-box">${Illustrations.render(sym, { size: 76 })}</div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+          <div class="pattern-tray-label">Sentuh atau tarik gambar yang cocok ke kotak tanda tanya:</div>
+          <div class="pattern-options-tray" id="patternOptionsTray"></div>
+        </div>
+      `;
+
+      const optionsTray = container.querySelector('#patternOptionsTray');
+      const missingSlot = container.querySelector('#missingSlot');
+      let isStepCompleted = false;
+
+      function handleAnswer(optVal, btn) {
+        if (isStepCompleted) return;
+        const cleanOpt = String(optVal).trim();
+        const cleanExp = String(expectedAns).trim();
+        const isMatch = (cleanOpt === cleanExp || cleanOpt.includes(cleanExp) || cleanExp.includes(cleanOpt));
+
+        if (isMatch) {
+          isStepCompleted = true;
+          if (typeof sound.playSnap === 'function') sound.playSnap();
+          sound.playCorrect();
+          triggerMascotReaction('cheer', 'Pola Cocok! 🧩');
+
+          if (missingSlot) {
+            missingSlot.classList.remove('pulse-slot');
+            missingSlot.classList.add('filled', 'snap-in');
+            missingSlot.innerHTML = `<div class="pattern-visual-box">${Illustrations.render(expectedAns, { size: 76 })}</div>`;
+          }
+          if (btn) btn.classList.add('correct');
+
+          setTimeout(() => {
+            currentStep++;
+            showStep();
+          }, 750);
+        } else {
+          sound.playGentleTryAgain();
+          triggerMascotReaction('think', 'Yuk coba yang lain! 🔍');
+          if (btn) {
+            btn.classList.add('shake');
+            setTimeout(() => btn.classList.remove('shake'), 400);
+          }
+        }
+      }
+
+      (item.options || []).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn pattern-choice-btn';
+        const optVal = typeof opt === 'object' && opt !== null ? (opt.label || opt.text || '') : String(opt);
+        btn.dataset.val = optVal;
+        btn.innerHTML = `
+          <div class="choice-visual-box">${Illustrations.render(optVal, { size: 92 })}</div>
+          <span class="emoji-text" style="display:none">${optVal}</span>
+        `;
+
+        // Touch drag support with tap fallback
+        let isDragging = false;
+        let startX = 0, startY = 0;
+        let dragGhost = null;
+
+        btn.addEventListener('pointerdown', (e) => {
+          if (isStepCompleted) return;
+          startX = e.clientX || 0;
+          startY = e.clientY || 0;
+          isDragging = false;
+
+          function onMove(moveEvent) {
+            const dx = (moveEvent.clientX || 0) - startX;
+            const dy = (moveEvent.clientY || 0) - startY;
+            if (!isDragging && Math.hypot(dx, dy) > 12) {
+              isDragging = true;
+              if (typeof document !== 'undefined' && document.body) {
+                dragGhost = document.createElement('div');
+                dragGhost.className = 'dragging-pola-ghost';
+                dragGhost.style.position = 'fixed';
+                dragGhost.style.pointerEvents = 'none';
+                dragGhost.style.zIndex = '9999';
+                dragGhost.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                dragGhost.innerHTML = btn.innerHTML;
+                document.body.appendChild(dragGhost);
+              }
+            }
+            if (isDragging && dragGhost) {
+              dragGhost.style.left = `${moveEvent.clientX}px`;
+              dragGhost.style.top = `${moveEvent.clientY}px`;
+            }
+          }
+
+          function onUp(upEvent) {
+            if (typeof window !== 'undefined') {
+              window.removeEventListener('pointermove', onMove);
+              window.removeEventListener('pointerup', onUp);
+              window.removeEventListener('pointercancel', onUp);
+            }
+
+            if (dragGhost) {
+              dragGhost.remove();
+              dragGhost = null;
+            }
+
+            if (isDragging) {
+              let isOverSlot = false;
+              if (missingSlot) {
+                if (typeof document !== 'undefined' && document.elementFromPoint) {
+                  const hovered = document.elementFromPoint(upEvent.clientX, upEvent.clientY);
+                  if (hovered && (hovered === missingSlot || missingSlot.contains(hovered))) {
+                    isOverSlot = true;
+                  }
+                }
+                if (!isOverSlot && missingSlot.getBoundingClientRect) {
+                  const rect = missingSlot.getBoundingClientRect();
+                  if (upEvent.clientX >= rect.left && upEvent.clientX <= rect.right &&
+                      upEvent.clientY >= rect.top && upEvent.clientY <= rect.bottom) {
+                    isOverSlot = true;
+                  }
+                }
+              }
+              if (isOverSlot) {
+                handleAnswer(optVal, btn);
+              }
+            }
+          }
+
+          if (typeof window !== 'undefined') {
+            window.addEventListener('pointermove', onMove, { passive: false });
+            window.addEventListener('pointerup', onUp);
+            window.addEventListener('pointercancel', onUp);
+          }
+        });
+
+        btn.onclick = () => {
+          if (isStepCompleted || isDragging) return;
+          handleAnswer(optVal, btn);
+        };
+
+        if (optionsTray) optionsTray.appendChild(btn);
+      });
+    }
+
+    showStep();
+  },
+
+  // ==========================================
+  // ENGINE 11: KODE (Crack the Code / Pecahkan Kode Rahasia)
+  // Symbol-to-number visual cipher with secret reward reveal
+  // ==========================================
+  renderKode(arg1, arg2, arg3) {
+    let container, level, onComplete;
+    if (arg1 && arg1.type) {
+      level = arg1; container = arg2; onComplete = arg3;
+    } else {
+      container = arg1; level = arg2; onComplete = arg3;
+    }
+
+    if (!container || !level) return;
+
+    const cipherKey = level.cipherKey || [
+      { symbol: '🕷️', value: '1' },
+      { symbol: '🤖', value: '2' },
+      { symbol: '⭐', value: '3' }
+    ];
+    const code = level.code || ['🕷️', '⭐', '🤖'];
+    const secretReward = level.secretReward || 'Piala Pahlawan Emas 🏆';
+    const rewardEmoji = level.rewardEmoji || '🏆';
+
+    if (code.length === 0) {
+      if (typeof onComplete === 'function') onComplete();
+      return;
+    }
+
+    const keyMap = {};
+    cipherKey.forEach(k => { keyMap[k.symbol] = String(k.value); });
+
+    const expectedValues = code.map(sym => keyMap[sym] || '1');
+    const userInputs = new Array(code.length).fill(null);
+    let activeSlotIdx = 0;
+    let isCodeSolved = false;
+
+    container.innerHTML = `
+      <div class="engine-kode">
+        <div class="cipher-legend-bar">
+          <div class="legend-title">Kunci Kode Rahasia:</div>
+          <div class="legend-cards">
+            ${cipherKey.map(k => `
+              <div class="cipher-key-badge">
+                <span class="key-sym">${Illustrations.render(k.symbol, { size: 48 })}</span>
+                <span class="key-eq">=</span>
+                <span class="key-val">${k.value}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="code-challenge-row" id="codeChallengeRow">
+          ${code.map((sym, idx) => `
+            <div class="code-col ${idx === 0 ? 'active' : ''}" data-idx="${idx}">
+              <div class="code-symbol-box">${Illustrations.render(sym, { size: 68 })}</div>
+              <div class="code-slot ${idx === 0 ? 'selected-slot' : ''}" id="codeSlot${idx}">_</div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="secret-reward-overlay" id="secretRewardOverlay" style="display:none;">
+          <div class="reward-glow"></div>
+          <div class="reward-visual">${Illustrations.render(rewardEmoji, { size: 120 })}</div>
+          <div class="reward-title">${secretReward}</div>
+        </div>
+
+        <div class="kode-keypad" id="kodeKeypad"></div>
+      </div>
+    `;
+
+    const keypad = container.querySelector('#kodeKeypad');
+    const cols = container.querySelectorAll('.code-col');
+
+    function updateActiveSlot(idx) {
+      activeSlotIdx = idx;
+      cols.forEach((c, i) => {
+        const slotEl = c.querySelector('.code-slot');
+        if (i === idx) {
+          c.classList.add('active');
+          if (slotEl) slotEl.classList.add('selected-slot');
+        } else {
+          c.classList.remove('active');
+          if (slotEl) slotEl.classList.remove('selected-slot');
+        }
+      });
+    }
+
+    cols.forEach((col, idx) => {
+      col.onclick = () => {
+        sound.playPop();
+        updateActiveSlot(idx);
+      };
+    });
+
+    // Get unique keypad values
+    const keypadValues = Array.from(new Set(cipherKey.map(k => String(k.value)))).sort();
+
+    keypadValues.forEach(val => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn keypad-btn';
+      btn.dataset.val = val;
+      btn.innerHTML = `<span class="keypad-text">${val}</span>`;
+
+      btn.onclick = () => {
+        if (isCodeSolved) return;
+        const currentSlotEl = container.querySelector(`#codeSlot${activeSlotIdx}`);
+        const expectedVal = expectedValues[activeSlotIdx];
+
+        if (val === expectedVal) {
+          if (typeof sound.playCipherClick === 'function') sound.playCipherClick();
+          else sound.playClick();
+
+          userInputs[activeSlotIdx] = val;
+          if (currentSlotEl) {
+            currentSlotEl.textContent = val;
+            currentSlotEl.classList.add('filled', 'decoded');
+          }
+
+          const allSolved = userInputs.every((v, i) => v === expectedValues[i]);
+          if (allSolved) {
+            isCodeSolved = true;
+            if (typeof sound.playFlourish === 'function') sound.playFlourish();
+            else sound.playFanfare();
+
+            triggerMascotReaction('cheer', 'Kode Berhasil Terbuka! 🔓✨');
+            const overlay = container.querySelector('#secretRewardOverlay');
+            if (overlay) {
+              overlay.style.display = 'flex';
+              overlay.classList.add('reward-pop');
+            }
+            setTimeout(() => {
+              if (typeof onComplete === 'function') onComplete();
+            }, 1400);
+          } else {
+            const nextEmpty = userInputs.findIndex(v => v === null);
+            if (nextEmpty !== -1) updateActiveSlot(nextEmpty);
+          }
+        } else {
+          sound.playGentleTryAgain();
+          triggerMascotReaction('think', 'Lihat kuncinya di atas ya! 💡');
+          if (currentSlotEl) {
+            currentSlotEl.classList.add('shake');
+            setTimeout(() => currentSlotEl.classList.remove('shake'), 400);
+          }
+        }
+      };
+
+      if (keypad) keypad.appendChild(btn);
+    });
+
+    // Add backspace / clear button
+    const backspaceBtn = document.createElement('button');
+    backspaceBtn.className = 'choice-btn keypad-btn keypad-backspace';
+    backspaceBtn.innerHTML = `<span class="keypad-text">⌫</span>`;
+    backspaceBtn.onclick = () => {
+      if (isCodeSolved) return;
+      sound.playPop();
+      userInputs[activeSlotIdx] = null;
+      const currentSlotEl = container.querySelector(`#codeSlot${activeSlotIdx}`);
+      if (currentSlotEl) {
+        currentSlotEl.textContent = '_';
+        currentSlotEl.classList.remove('filled', 'decoded');
+      }
+    };
+    if (keypad) keypad.appendChild(backspaceBtn);
+  },
+
+  // ==========================================
+  // ENGINE 12: BEDA (Visual Discrimination / Cari yang Berbeda)
+  // Grid of cards identifying subtle orientation, category, or detail differences
+  // ==========================================
+  renderBeda(arg1, arg2, arg3) {
+    let container, level, onComplete;
+    if (arg1 && arg1.type) {
+      level = arg1; container = arg2; onComplete = arg3;
+    } else {
+      container = arg1; level = arg2; onComplete = arg3;
+    }
+
+    if (!container || !level) return;
+
+    const rawItems = Array.isArray(level.items)
+      ? level.items
+      : [{
+          question: level.question || 'Mana gambar yang berbeda?',
+          options: level.options || ['🐱', '🐱', '🐶', '🐱'],
+          answerIndex: level.answerIndex !== undefined ? level.answerIndex : 2,
+          answer: level.answer
+        }];
+
+    if (rawItems.length === 0) {
+      if (typeof onComplete === 'function') onComplete();
+      return;
+    }
+
+    let currentStep = 0;
+
+    function showStep() {
+      if (currentStep >= rawItems.length) {
+        if (typeof onComplete === 'function') onComplete();
+        return;
+      }
+
+      const item = rawItems[currentStep];
+      const optCount = (item.options || []).length;
+
+      container.innerHTML = `
+        <div class="engine-beda">
+          ${rawItems.length > 1 ? `<div class="step-indicator">Soal ${currentStep + 1} dari ${rawItems.length}</div>` : ''}
+          ${item.question ? `<div class="beda-question-title">${item.question}</div>` : ''}
+          <div class="options-grid beda-grid options-count-${optCount}" id="bedaGrid"></div>
+        </div>
+      `;
+
+      const grid = container.querySelector('#bedaGrid');
+      let isStepCompleted = false;
+
+      (item.options || []).forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn beda-card beda-btn';
+        btn.dataset.idx = idx;
+
+        const isObj = typeof opt === 'object' && opt !== null;
+        const labelText = isObj ? (opt.label || opt.text || '') : String(opt);
+        btn.dataset.val = labelText;
+        const optDirection = isObj && opt.direction ? opt.direction : null;
+        const optRotation = isObj && opt.rotation ? opt.rotation : null;
+
+        const visualHtml = `
+          <div class="choice-visual-box" ${optRotation ? `style="transform: rotate(${optRotation}deg);"` : ''}>
+            ${Illustrations.render(labelText, { size: 104, direction: optDirection })}
+          </div>
+        `;
+
+        btn.innerHTML = `
+          <div class="choice-card-content">${visualHtml}</div>
+          <span class="emoji-text" style="display:none">${labelText}</span>
+        `;
+
+        btn.onclick = () => {
+          if (isStepCompleted) return;
+          let isCorrect = false;
+
+          if (item.answerIndex !== undefined) {
+            isCorrect = (idx === item.answerIndex);
+          } else if (isObj && opt.isDifferent === true) {
+            isCorrect = true;
+          } else if (item.answer !== undefined) {
+            isCorrect = (opt === item.answer || labelText === String(item.answer) || labelText.includes(String(item.answer)));
+          } else {
+            const matches = (item.options || []).filter(o => {
+              const l = typeof o === 'object' && o !== null ? o.label : String(o);
+              return l === labelText;
+            });
+            isCorrect = (matches.length === 1);
+          }
+
+          if (isCorrect) {
+            isStepCompleted = true;
+            sound.playCorrect();
+            triggerMascotReaction('cheer', 'Matamu Jeli Sekali! 🔍🌟');
+            btn.classList.add('correct', 'glow-spot');
+
+            setTimeout(() => {
+              currentStep++;
+              showStep();
+            }, 650);
+          } else {
+            sound.playGentleTryAgain();
+            triggerMascotReaction('think', 'Cari yang beda ya! 🧐');
+            btn.classList.add('shake');
+            setTimeout(() => btn.classList.remove('shake'), 400);
+          }
+        };
+
+        if (grid) grid.appendChild(btn);
+      });
+    }
+
+    showStep();
+  },
+
+  // ==========================================
+  // ENGINE 13: JUMLAH (Visual Math & Balance / Penjumlahan Bergambar & Timbangan)
+  // Mode A: Dynamic SVG Balance Scale with physical tilt physics & tactile counting
+  // Mode B: Tangible group addition with fruit baskets & jumbo number answer buttons
+  // ==========================================
+  renderJumlah(arg1, arg2, arg3) {
+    let container, level, onComplete;
+    if (arg1 && arg1.type) {
+      level = arg1; container = arg2; onComplete = arg3;
+    } else {
+      container = arg1; level = arg2; onComplete = arg3;
+    }
+
+    if (!container || !level) return;
+
+    const mode = level.mode || 'balance';
+    const leftGroup = level.leftGroup || { item: '🍎', count: 3 };
+    const rightGroup = level.rightGroup || { item: '🍎', count: 2 };
+    let isCompleted = false;
+
+    if (mode === 'balance') {
+      const leftCount = Number(leftGroup.count) || 0;
+      const rightCount = Number(rightGroup.count) || 0;
+      const tiltAngle = Math.max(-14, Math.min(14, (rightCount - leftCount) * 3.5));
+      const targetSide = level.target || (leftCount > rightCount ? 'left' : (rightCount > leftCount ? 'right' : 'equal'));
+
+      container.innerHTML = `
+        <div class="engine-jumlah balance-mode">
+          <div class="balance-stage">
+            <svg class="balance-svg" viewBox="0 0 500 280">
+              <!-- Center Stand Base -->
+              <polygon points="250,110 220,250 280,250" fill="#64748B" stroke="#1E293B" stroke-width="4"/>
+              <ellipse cx="250" cy="250" rx="60" ry="12" fill="#1E293B"/>
+
+              <!-- Tilting Crossbeam -->
+              <g transform="rotate(${tiltAngle} 250 110)">
+                <line x1="70" y1="110" x2="430" y2="110" stroke="#F59E0B" stroke-width="12" stroke-linecap="round"/>
+                <circle cx="250" cy="110" r="14" fill="#EAB308" stroke="#1E293B" stroke-width="4"/>
+
+                <!-- Left Pan Chains & Pan -->
+                <line x1="90" y1="110" x2="60" y2="190" stroke="#94A3B8" stroke-width="3"/>
+                <line x1="90" y1="110" x2="120" y2="190" stroke="#94A3B8" stroke-width="3"/>
+                <path d="M 40 190 Q 90 220 140 190 Z" fill="#E2E8F0" stroke="#1E293B" stroke-width="3.5"/>
+
+                <!-- Right Pan Chains & Pan -->
+                <line x1="410" y1="110" x2="380" y2="190" stroke="#94A3B8" stroke-width="3"/>
+                <line x1="410" y1="110" x2="440" y2="190" stroke="#94A3B8" stroke-width="3"/>
+                <path d="M 360 190 Q 410 220 460 190 Z" fill="#E2E8F0" stroke="#1E293B" stroke-width="3.5"/>
+              </g>
+            </svg>
+
+            <!-- Interactive Fruit Clusters on Pans -->
+            <div class="pan-touch-zone left-pan" id="panLeft" style="transform: translateY(${tiltAngle * 1.5}px);">
+              <div class="pan-badge">Kiri: ${leftCount}</div>
+              <div class="pan-items-cluster">
+                ${Array.from({ length: leftCount }).map((_, i) => `
+                  <span class="pan-fruit-item" data-idx="${i + 1}">${Illustrations.render(leftGroup.item, { size: 44 })}</span>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="pan-touch-zone right-pan" id="panRight" style="transform: translateY(${-tiltAngle * 1.5}px);">
+              <div class="pan-badge">Kanan: ${rightCount}</div>
+              <div class="pan-items-cluster">
+                ${Array.from({ length: rightCount }).map((_, i) => `
+                  <span class="pan-fruit-item" data-idx="${i + 1}">${Illustrations.render(rightGroup.item, { size: 44 })}</span>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+
+          <div class="balance-prompt-text">Sentuh piring timbangan yang lebih banyak atau pilih tombol di bawah:</div>
+          <div class="balance-options-row" id="balanceOptionsRow">
+            <button class="choice-btn pan-choice-btn" data-side="left">
+              <span class="btn-side-label">Piring Kiri (${leftCount})</span>
+            </button>
+            <button class="choice-btn pan-choice-btn" data-side="right">
+              <span class="btn-side-label">Piring Kanan (${rightCount})</span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Interactive touch-counting on individual fruits
+      container.querySelectorAll('.pan-fruit-item').forEach(fruit => {
+        fruit.onclick = (e) => {
+          if (e && e.stopPropagation) e.stopPropagation();
+          sound.playPop();
+          fruit.classList.add('item-bounce');
+          setTimeout(() => fruit.classList.remove('item-bounce'), 350);
+        };
+      });
+
+      function verifyChoice(chosenSide) {
+        if (isCompleted) return;
+        if (chosenSide === targetSide) {
+          isCompleted = true;
+          if (typeof sound.playScaleTilt === 'function') sound.playScaleTilt();
+          sound.playCorrect();
+          triggerMascotReaction('cheer', 'Timbangan Pas! ⚖️🌟');
+          container.querySelectorAll(`[data-side="${chosenSide}"]`).forEach(el => el.classList.add('correct'));
+          const targetPan = container.querySelector(chosenSide === 'left' ? '#panLeft' : '#panRight');
+          if (targetPan) targetPan.classList.add('correct');
+          setTimeout(() => {
+            if (typeof onComplete === 'function') onComplete();
+          }, 800);
+        } else {
+          sound.playGentleTryAgain();
+          triggerMascotReaction('think', 'Ayo hitung lagi buahnya! 🍎');
+          container.querySelectorAll(`[data-side="${chosenSide}"]`).forEach(el => {
+            el.classList.add('shake');
+            setTimeout(() => el.classList.remove('shake'), 400);
+          });
+          const targetPan = container.querySelector(chosenSide === 'left' ? '#panLeft' : '#panRight');
+          if (targetPan) {
+            targetPan.classList.add('shake');
+            setTimeout(() => targetPan.classList.remove('shake'), 400);
+          }
+        }
+      }
+
+      const panLeft = container.querySelector('#panLeft');
+      const panRight = container.querySelector('#panRight');
+      if (panLeft) panLeft.onclick = () => verifyChoice('left');
+      if (panRight) panRight.onclick = () => verifyChoice('right');
+
+      container.querySelectorAll('.pan-choice-btn').forEach(btn => {
+        btn.onclick = () => verifyChoice(btn.dataset.side);
+      });
+    } else {
+      // Group Addition Mode
+      const sum = (Number(leftGroup.count) || 0) + (Number(rightGroup.count) || 0);
+      const expectedAnswer = Number(level.answer !== undefined ? level.answer : sum);
+      const options = level.options || [sum - 1, sum, sum + 1];
+
+      container.innerHTML = `
+        <div class="engine-jumlah addition-mode">
+          <div class="math-groups-row">
+            <div class="count-box left-box">
+              <div class="items-cluster">
+                ${Array.from({ length: leftGroup.count }).map((_, i) => `
+                  <span class="count-fruit-item" data-num="${i + 1}">${Illustrations.render(leftGroup.item, { size: 52 })}</span>
+                `).join('')}
+              </div>
+              <div class="box-count-label">${leftGroup.count}</div>
+            </div>
+
+            <div class="math-op-bubble">➕</div>
+
+            <div class="count-box right-box">
+              <div class="items-cluster">
+                ${Array.from({ length: rightGroup.count }).map((_, i) => `
+                  <span class="count-fruit-item" data-num="${leftGroup.count + i + 1}">${Illustrations.render(rightGroup.item, { size: 52 })}</span>
+                `).join('')}
+              </div>
+              <div class="box-count-label">${rightGroup.count}</div>
+            </div>
+
+            <div class="math-op-bubble">🟰</div>
+
+            <div class="count-box result-box" id="resultBasket">
+              <span class="mystery-q">❓</span>
+            </div>
+          </div>
+
+          <div class="math-options-tray" id="mathOptionsTray"></div>
+        </div>
+      `;
+
+      // Touch counting on items
+      container.querySelectorAll('.count-fruit-item').forEach(item => {
+        item.onclick = (e) => {
+          if (e && e.stopPropagation) e.stopPropagation();
+          sound.playPop();
+          item.classList.add('item-bounce');
+          setTimeout(() => item.classList.remove('item-bounce'), 350);
+        };
+      });
+
+      const optTray = container.querySelector('#mathOptionsTray');
+      const resBasket = container.querySelector('#resultBasket');
+
+      options.forEach(optVal => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn math-num-btn';
+        const numVal = typeof optVal === 'object' && optVal !== null ? (optVal.label || optVal.value) : optVal;
+        btn.dataset.val = numVal;
+        btn.innerHTML = `<span class="choice-num-badge">${numVal}</span>`;
+
+        btn.onclick = () => {
+          if (isCompleted) return;
+          if (Number(numVal) === expectedAnswer) {
+            isCompleted = true;
+            sound.playCorrect();
+            triggerMascotReaction('cheer', 'Hitungan Sempurna! ⭐');
+            btn.classList.add('correct');
+            if (resBasket) {
+              resBasket.classList.add('filled', 'correct');
+              resBasket.innerHTML = `<span class="choice-num-badge">${expectedAnswer}</span>`;
+            }
+            setTimeout(() => {
+              if (typeof onComplete === 'function') onComplete();
+            }, 800);
+          } else {
+            sound.playGentleTryAgain();
+            triggerMascotReaction('think', 'Hitung semua buahnya ya! 😊');
+            btn.classList.add('shake');
+            setTimeout(() => btn.classList.remove('shake'), 400);
+          }
+        };
+
+        if (optTray) optTray.appendChild(btn);
+      });
+    }
+  },
+
+  // ==========================================
+  // UNIFIED DISPATCHER (Polymorphic: (container, level, onComplete) OR (level, container, onWin, onFail))
+  // ==========================================
+  render(arg1, arg2, arg3, arg4) {
+    let container, level, onComplete;
+    if (arg1 && arg1.type) {
+      level = arg1;
+      container = arg2;
+      onComplete = arg3;
+    } else {
+      container = arg1;
+      level = arg2;
+      onComplete = arg3;
+    }
+
+    if (!level || !level.type) {
+      console.error('Invalid level passed to Engines.render');
+      return;
+    }
+
     const map = {
       hubungkan: this.renderHubungkan,
       labirin: this.renderLabirin,
@@ -1222,7 +1941,11 @@ export const Engines = {
       mewarnai: this.renderMewarnai,
       urutkan: this.renderUrutkan,
       panah: this.renderKodingPanah,
-      memori: this.renderMemori
+      memori: this.renderMemori,
+      pola: this.renderPola,
+      kode: this.renderKode,
+      beda: this.renderBeda,
+      jumlah: this.renderJumlah
     };
     const fn = map[level.type];
     if (!fn) {
@@ -1233,7 +1956,11 @@ export const Engines = {
   }
 };
 
-// Aliases for direct type mapping
+// Aliases and explicit exports for direct type mapping
 Engines.renderTitik = Engines.renderHubungkanTitik;
 Engines.renderPanah = Engines.renderKodingPanah;
+Engines.renderPola = Engines.renderPola;
+Engines.renderKode = Engines.renderKode;
+Engines.renderBeda = Engines.renderBeda;
+Engines.renderJumlah = Engines.renderJumlah;
 

@@ -348,6 +348,153 @@ export class SoundSystem {
     osc2.start(now);
     osc2.stop(now + 0.08);
   }
+
+  // Crisp wooden puzzle lock/snap sound (for pattern & tile snapping)
+  playSnap() {
+    if (!this.sfxEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const now = this.ctx.currentTime || 0;
+
+    // Voice 1: Main snap transient (triangle 580Hz fast decaying to 240Hz)
+    const osc1 = this.ctx.createOscillator();
+    const gain1 = this.ctx.createGain();
+    osc1.type = 'triangle';
+    osc1.frequency.setValueAtTime(580, now);
+    osc1.frequency.exponentialRampToValueAtTime(240, now + 0.05);
+    gain1.gain.setValueAtTime(0.24, now);
+    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+    osc1.connect(gain1);
+    gain1.connect(this.ctx.destination);
+    osc1.start(now);
+    osc1.stop(now + 0.06);
+
+    // Voice 2: High tactile magnetic click ping (sine 1280Hz)
+    const osc2 = this.ctx.createOscillator();
+    const gain2 = this.ctx.createGain();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(1280, now);
+    gain2.gain.setValueAtTime(0.12, now);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+    osc2.connect(gain2);
+    gain2.connect(this.ctx.destination);
+    osc2.start(now);
+    osc2.stop(now + 0.08);
+  }
+
+  // Rotary decoder / mechanical safe dial tumbler double-tick
+  playCipherClick() {
+    if (!this.sfxEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const now = this.ctx.currentTime || 0;
+
+    // Tick 1: First mechanical tumbler contact
+    const osc1 = this.ctx.createOscillator();
+    const gain1 = this.ctx.createGain();
+    osc1.type = 'triangle';
+    osc1.frequency.setValueAtTime(880, now);
+    gain1.gain.setValueAtTime(0.16, now);
+    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.025);
+    osc1.connect(gain1);
+    gain1.connect(this.ctx.destination);
+    osc1.start(now);
+    osc1.stop(now + 0.025);
+
+    // Tick 2: Second latch catch
+    const osc2 = this.ctx.createOscillator();
+    const gain2 = this.ctx.createGain();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(1320, now + 0.03);
+    gain2.gain.setValueAtTime(0.14, now + 0.03);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.055);
+    osc2.connect(gain2);
+    gain2.connect(this.ctx.destination);
+    osc2.start(now + 0.03);
+    osc2.stop(now + 0.055);
+  }
+
+  // Weight-shift glissando for balance scale tilt
+  playScaleTilt() {
+    if (!this.sfxEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const now = this.ctx.currentTime || 0;
+
+    const osc1 = this.ctx.createOscillator();
+    const gain1 = this.ctx.createGain();
+    osc1.type = 'sine';
+    osc1.frequency.setValueAtTime(320, now);
+    osc1.frequency.exponentialRampToValueAtTime(440, now + 0.16);
+    gain1.gain.setValueAtTime(0.18, now);
+    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+    osc1.connect(gain1);
+    gain1.connect(this.ctx.destination);
+    osc1.start(now);
+    osc1.stop(now + 0.18);
+
+    const osc2 = this.ctx.createOscillator();
+    const gain2 = this.ctx.createGain();
+    osc2.type = 'triangle';
+    osc2.frequency.setValueAtTime(640, now);
+    osc2.frequency.exponentialRampToValueAtTime(880, now + 0.14);
+    gain2.gain.setValueAtTime(0.08, now);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+    osc2.connect(gain2);
+    gain2.connect(this.ctx.destination);
+    osc2.start(now);
+    osc2.stop(now + 0.14);
+  }
+
+  // Celestial victory flourish for secret code unlock and puzzle discovery
+  playFlourish() {
+    if (!this.sfxEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    // Ascending celebratory notes: F5, A5, C6, E6, G6
+    const arpeggio = [
+      { f: 698.46, wait: 0 },
+      { f: 880.00, wait: 70 },
+      { f: 1046.50, wait: 140 },
+      { f: 1318.51, wait: 220 },
+      { f: 1567.98, wait: 310 }
+    ];
+
+    arpeggio.forEach(m => {
+      setTimeout(() => {
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime || 0;
+
+        // Primary note
+        const osc1 = this.ctx.createOscillator();
+        const gain1 = this.ctx.createGain();
+        osc1.type = 'triangle';
+        osc1.frequency.setValueAtTime(m.f, now);
+        gain1.gain.setValueAtTime(0.22, now);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.36);
+        osc1.connect(gain1);
+        gain1.connect(this.ctx.destination);
+        osc1.start(now);
+        osc1.stop(now + 0.36);
+
+        // Shimmer overtone (+12 cents detuned sine)
+        const osc2 = this.ctx.createOscillator();
+        const gain2 = this.ctx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(m.f * 1.007, now);
+        gain2.gain.setValueAtTime(0.12, now);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+        osc2.connect(gain2);
+        gain2.connect(this.ctx.destination);
+        osc2.start(now);
+        osc2.stop(now + 0.32);
+      }, m.wait);
+    });
+  }
 }
 
 export const sound = new SoundSystem();

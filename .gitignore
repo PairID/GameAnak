@@ -11,7 +11,9 @@ __pycache__/
 # Temporary test scratch & preview capture helpers
 capture_previews.py
 showcase_preview.html
+showcase_world5.html
 level_preview.html
+preview_world5_gameplay.html
 
 # .NET build artifacts
 portable-windows/**/bin/

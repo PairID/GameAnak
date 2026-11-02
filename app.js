@@ -204,6 +204,10 @@ export class AppController {
     // Mascot & Victory reaction timers
     this.mascotRevertTimeout = null;
     this.victoryTimeouts = [];
+
+    // Star & Level limits (World 5 expansion: 91 levels * 3 = 273 max stars)
+    this.maxLevels = (typeof LEVELS !== 'undefined' && LEVELS.length) ? LEVELS.length : 91;
+    this.maxStars = this.maxLevels * 3;
   }
 
   // Safe LocalStorage helpers with graceful fallback
@@ -287,7 +291,9 @@ export class AppController {
 
     const progressObj = {
       completedLevels: this.completedLevels,
-      totalStars
+      totalStars,
+      maxStars: this.getMaxStars(),
+      maxLevels: this.getMaxLevels()
     };
     this.safeStorageSet('spidey_progress', JSON.stringify(progressObj));
   }
@@ -298,6 +304,14 @@ export class AppController {
 
   getCompletedLevelsCount() {
     return Object.keys(this.completedLevels).length;
+  }
+
+  getMaxStars() {
+    return (LEVELS.length || 91) * 3;
+  }
+
+  getMaxLevels() {
+    return LEVELS.length || 91;
   }
 
   // Indonesian formatted date helper

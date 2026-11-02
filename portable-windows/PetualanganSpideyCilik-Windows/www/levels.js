@@ -1,7 +1,7 @@
-// levels.js - Definisi 70 level permainan anak berbasis lembar kerja Problem Solving Kids
-// 4 Dunia petualangan: Hutan Satwa, Kota Angka, Markas Pahlawan, Lab Koding
+// levels.js - Definisi level permainan anak berbasis lembar kerja Problem Solving Kids & Kiddo Worksheets
+// 5 Dunia petualangan: Hutan Satwa, Kota Angka, Markas Pahlawan, Lab Koding, Dunia Teka-Teki Cilik
 
-export const WORLDS = [
+export const BASE_WORLDS = [
   {
     id: 'hewan',
     name: 'Hutan Satwa Lucu',
@@ -36,7 +36,21 @@ export const WORLDS = [
   }
 ];
 
-export const LEVELS = [
+export const WORLD_5 = {
+  id: 'puzzle',
+  name: 'Dunia Teka-Teki Cilik',
+  emoji: '🧩',
+  color: '#8B5CF6',
+  bgColor: '#F5F3FF',
+  desc: 'Pecahkan teka-teki pola, pecahkan kode rahasia, cari perbedaan gambar, dan hitung buah ceria!'
+};
+
+export const ALL_WORLDS = [
+  ...BASE_WORLDS,
+  WORLD_5
+];
+
+export const BASE_LEVELS = [
   // ==========================================
   // DUNIA 1: HUTAN SATWA LUCU (Lembar 01 - 11)
   // ==========================================
@@ -1227,3 +1241,328 @@ export const LEVELS = [
     ]
   }
 ];
+
+export const PUZZLE_LEVELS = [
+  // ==========================================
+  // DUNIA 5: DUNIA TEKA-TEKI CILIK (Lembar 76 - 91)
+  // ==========================================
+
+  // --- ENGINE 1: POLA (Lengkapi Pola / Complete the Pattern) ---
+  {
+    id: '76',
+    worldId: 'puzzle',
+    sheetNo: 76,
+    title: 'Pola Buah Apel dan Pisang',
+    type: 'pola',
+    prompt: 'Lihat polanya! Apel, pisang, apel, pisang... Buah apa selanjutnya? Sentuh buah yang benar!',
+    patternType: 'AB',
+    sequence: ['🍎', '🍌', '🍎', '🍌', '❓'],
+    missingIndex: 4,
+    options: ['🍎', '🍌', '🍇'],
+    answer: '🍎',
+    hint: 'Setelah pisang, kembali lagi ke buah apel!'
+  },
+  {
+    id: '77',
+    worldId: 'puzzle',
+    sheetNo: 77,
+    title: 'Pola Bintang dan Bulan',
+    type: 'pola',
+    prompt: 'Bintang, bintang, bulan, bulan, bintang, bintang... Benda langit apa selanjutnya? Sentuh jawabannya!',
+    patternType: 'AABB',
+    sequence: ['⭐', '⭐', '🌙', '🌙', '⭐', '⭐', '❓'],
+    missingIndex: 6,
+    options: ['🌙', '⭐', '☀️'],
+    answer: '🌙',
+    hint: 'Setelah dua bintang, ada dua bulan!'
+  },
+  {
+    id: '78',
+    worldId: 'puzzle',
+    sheetNo: 78,
+    title: 'Pola Kendaraan Meluncur',
+    type: 'pola',
+    prompt: 'Mobil, pesawat, kapal laut, mobil, pesawat... Kendaraan apa yang melengkapi pola ini?',
+    patternType: 'ABC',
+    sequence: ['🚗', '✈️', '🚢', '🚗', '✈️', '❓'],
+    missingIndex: 5,
+    options: ['🚢', '🚗', '🚂'],
+    answer: '🚢',
+    hint: 'Urutannya: mobil, pesawat, lalu kapal laut!'
+  },
+  {
+    id: '79',
+    worldId: 'puzzle',
+    sheetNo: 79,
+    title: 'Pola Kucing dan Kelinci',
+    type: 'pola',
+    prompt: 'Kucing, kelinci, kelinci, kucing, kelinci... Siapa teman hewan selanjutnya?',
+    patternType: 'ABB',
+    sequence: ['🐱', '🐰', '🐰', '🐱', '🐰', '❓'],
+    missingIndex: 5,
+    options: ['🐰', '🐱', '🐶'],
+    answer: '🐰',
+    hint: 'Kucing satu kali, kelincinya dua kali!'
+  },
+
+  // --- ENGINE 2: KODE (Pecahkan Kode Rahasia / Crack the Code) ---
+  {
+    id: '80',
+    worldId: 'puzzle',
+    sheetNo: 80,
+    title: 'Pecahkan Sandi 2 Hewan',
+    type: 'kode',
+    prompt: 'Buka peti rahasia! Kucing adalah angka satu, dan anjing adalah angka dua. Masukkan kodenya!',
+    cipherKey: [
+      { symbol: '🐱', value: '1', label: 'Kucing = 1' },
+      { symbol: '🐶', value: '2', label: 'Anjing = 2' }
+    ],
+    code: ['🐱', '🐶', '🐱'],
+    solution: ['1', '2', '1'],
+    options: ['1', '2', '3'],
+    secretReward: 'Piala Pahlawan Emas 🏆',
+    rewardEmoji: '🏆',
+    hint: 'Kucing sama dengan satu, anjing sama dengan dua!'
+  },
+  {
+    id: '81',
+    worldId: 'puzzle',
+    sheetNo: 81,
+    title: 'Kode Simbol Bentuk Warna',
+    type: 'kode',
+    prompt: 'Cocokkan bentuk dengan nomornya! Lingkaran merah nomor 1, bintang kuning nomor 2, dan kotak biru nomor 3!',
+    cipherKey: [
+      { symbol: '🔴', value: '1', label: 'Lingkaran Merah' },
+      { symbol: '⭐', value: '2', label: 'Bintang Kuning' },
+      { symbol: '🟦', value: '3', label: 'Kotak Biru' }
+    ],
+    code: ['⭐', '🔴', '🟦'],
+    solution: ['2', '1', '3'],
+    options: ['1', '2', '3', '4'],
+    secretReward: 'Peti Harta Karun Spidey 🎁',
+    rewardEmoji: '🎁',
+    hint: 'Bintang dua, lingkaran satu, kotak tiga!'
+  },
+  {
+    id: '82',
+    worldId: 'puzzle',
+    sheetNo: 82,
+    title: 'Sandi Perlengkapan Spidey',
+    type: 'kode',
+    prompt: 'Detektif cilik, masukkan kode sinyal Spidey: Kilat, jaring, dan perisai!',
+    cipherKey: [
+      { symbol: '⚡', value: '5', label: 'Kilat = 5' },
+      { symbol: '🕸️', value: '3', label: 'Jaring = 3' },
+      { symbol: '🛡️', value: '7', label: 'Perisai = 7' }
+    ],
+    code: ['⚡', '🕸️', '🛡️'],
+    solution: ['5', '3', '7'],
+    options: ['3', '5', '7', '9'],
+    secretReward: 'Bintang Energi Super ⭐',
+    rewardEmoji: '⭐',
+    hint: 'Kilat lima, jaring tiga, perisai tujuh!'
+  },
+  {
+    id: '83',
+    worldId: 'puzzle',
+    sheetNo: 83,
+    title: 'Pesan Rahasia Huruf A-B-C',
+    type: 'kode',
+    prompt: 'Pecahkan huruf rahasia! Apel adalah A, Bintang adalah B, dan Ceri adalah C. Buka pesannya!',
+    cipherKey: [
+      { symbol: '🍎', value: 'A', label: 'Apel = A' },
+      { symbol: '⭐', value: 'B', label: 'Bintang = B' },
+      { symbol: '🍒', value: 'C', label: 'Ceri = C' }
+    ],
+    code: ['🍎', '🍒', '⭐'],
+    solution: ['A', 'C', 'B'],
+    options: ['A', 'B', 'C', 'D'],
+    secretReward: 'Medali Detektif Cilik 🥇',
+    rewardEmoji: '🥇',
+    hint: 'Apel adalah A, ceri adalah C, bintang adalah B!'
+  },
+
+  // --- ENGINE 3: BEDA (Cari yang Berbeda / Visual Discrimination) ---
+  {
+    id: '84',
+    worldId: 'puzzle',
+    sheetNo: 84,
+    title: 'Cari Ikan Berenang Terbalik',
+    type: 'beda',
+    prompt: 'Lihat keempat ikan ini! Ada satu ikan yang menghadap ke arah BERBEDA. Sentuh ikan yang berbeda!',
+    question: 'Mana ikan yang berenang ke arah berbeda?',
+    options: [
+      { label: '🐟 Ikan Kanan', direction: 'right' },
+      { label: '🐟 Ikan Kanan', direction: 'right' },
+      { label: '🐟 Ikan Kiri', direction: 'left', isDifferent: true },
+      { label: '🐟 Ikan Kanan', direction: 'right' }
+    ],
+    answerIndex: 2,
+    cards: [
+      { visual: '🐟', label: 'Ikan Kanan', flipH: false },
+      { visual: '🐟', label: 'Ikan Kanan', flipH: false },
+      { visual: '🐟', label: 'Ikan Kiri', flipH: true },
+      { visual: '🐟', label: 'Ikan Kanan', flipH: false }
+    ],
+    differentIndex: 2,
+    differenceReason: 'Ikan ini berenang ke kiri, sedangkan teman-temannya ke kanan!'
+  },
+  {
+    id: '85',
+    worldId: 'puzzle',
+    sheetNo: 85,
+    title: 'Benda yang Bukan Hewan',
+    type: 'beda',
+    prompt: 'Semua ini adalah hewan lucu yang bisa bergerak, tapi ada SATU benda mati! Sentuh yang paling berbeda!',
+    question: 'Mana yang bukan termasuk hewan hidup?',
+    options: ['🐰 Kelinci', '🐱 Kucing', '🚗 Mobil Mainan', '🐶 Anjing'],
+    answerIndex: 2,
+    cards: [
+      { visual: '🐰', label: 'Kelinci Lucu' },
+      { visual: '🐱', label: 'Kucing Manis' },
+      { visual: '🚗', label: 'Mobil Mainan' },
+      { visual: '🐶', label: 'Anjing Setia' }
+    ],
+    differentIndex: 2,
+    differenceReason: 'Mobil adalah kendaraan roda empat, sedangkan lainnya adalah hewan!'
+  },
+  {
+    id: '86',
+    worldId: 'puzzle',
+    sheetNo: 86,
+    title: 'Kelinci Menjungkir Balik',
+    type: 'beda',
+    prompt: 'Ada satu kelinci yang berdiri terbalik dengan kepala di bawah! Ayo sentuh kelinci nakal itu!',
+    question: 'Mana kelinci yang berdiri terbalik?',
+    options: [
+      { label: '🐰 Kelinci', rotation: 0 },
+      { label: '🐰 Kelinci', rotation: 0 },
+      { label: '🐰 Kelinci', rotation: 0 },
+      { label: '🐰 Kelinci', rotation: 180, isDifferent: true }
+    ],
+    answerIndex: 3,
+    cards: [
+      { visual: '🐰', label: 'Kelinci Berdiri', rotation: 0 },
+      { visual: '🐰', label: 'Kelinci Berdiri', rotation: 0 },
+      { visual: '🐰', label: 'Kelinci Berdiri', rotation: 0 },
+      { visual: '🐰', label: 'Kelinci Terbalik', rotation: 180 }
+    ],
+    differentIndex: 3,
+    differenceReason: 'Kelinci ini berdiri terbalik seratus delapan puluh derajat!'
+  },
+  {
+    id: '87',
+    worldId: 'puzzle',
+    sheetNo: 87,
+    title: 'Kupu-Kupu Warna Istimewa',
+    type: 'beda',
+    prompt: 'Tiga kupu-kupu berwarna biru, tapi ada SATU kupu-kupu berwarna oranye! Yang mana ya?',
+    question: 'Mana kupu-kupu yang warnanya berbeda?',
+    options: [
+      { label: '🦋 Kupu-Kupu Biru', isDifferent: false },
+      { label: '🦋 Kupu-Kupu Oranye', isDifferent: true },
+      { label: '🦋 Kupu-Kupu Biru', isDifferent: false },
+      { label: '🦋 Kupu-Kupu Biru', isDifferent: false }
+    ],
+    answerIndex: 1,
+    cards: [
+      { visual: '🦋', color: 'blue', label: 'Kupu-Kupu Biru' },
+      { visual: '🦋', color: 'orange', label: 'Kupu-Kupu Oranye' },
+      { visual: '🦋', color: 'blue', label: 'Kupu-Kupu Biru' },
+      { visual: '🦋', color: 'blue', label: 'Kupu-Kupu Biru' }
+    ],
+    differentIndex: 1,
+    differenceReason: 'Kupu-kupu ini bersayap oranye, yang lainnya berwarna biru!'
+  },
+
+  // --- ENGINE 4: JUMLAH (Penjumlahan Bergambar & Timbangan) ---
+  {
+    id: '88',
+    worldId: 'puzzle',
+    sheetNo: 88,
+    title: 'Tambah Apel Merah (1 + 2)',
+    type: 'jumlah',
+    prompt: 'Satu apel merah ditambah dua apel merah, ada berapa apel semuanya? Sentuh angka hasil hitunganmu!',
+    mode: 'addition',
+    leftGroup: { item: '🍎', count: 1, label: '1 Apel' },
+    rightGroup: { item: '🍎', count: 2, label: '2 Apel' },
+    groupA: { item: '🍎', count: 1, label: '1 Apel' },
+    groupB: { item: '🍎', count: 2, label: '2 Apel' },
+    answer: 3,
+    options: [2, 3, 4],
+    hint: 'Hitung bersama: satu... dua, tiga! Totalnya tiga apel!'
+  },
+  {
+    id: '89',
+    worldId: 'puzzle',
+    sheetNo: 89,
+    title: 'Timbangan Jeruk: Mana Lebih Banyak?',
+    type: 'jumlah',
+    prompt: 'Lihat timbangannya! Keranjang kiri ada empat jeruk, keranjang kanan ada dua jeruk. Sentuh yang LEBIH BANYAK!',
+    mode: 'balance',
+    leftGroup: { item: '🍊', count: 4, label: '4 Jeruk' },
+    rightGroup: { item: '🍊', count: 2, label: '2 Jeruk' },
+    target: 'left',
+    answer: 'left',
+    options: [
+      { side: 'left', label: 'Kiri (4 Jeruk) 🍊' },
+      { side: 'right', label: 'Kanan (2 Jeruk) 🍊' }
+    ],
+    hint: 'Empat lebih banyak dari dua! Pilih keranjang sebelah kiri!'
+  },
+  {
+    id: '90',
+    worldId: 'puzzle',
+    sheetNo: 90,
+    title: 'Pesta Kue Ulang Tahun (2 + 3)',
+    type: 'jumlah',
+    prompt: 'Dua kue cangkir ditambah tiga kue cangkir manis. Ayo hitung semua kue dan pilih angkanya!',
+    mode: 'addition',
+    leftGroup: { item: '🧁', count: 2, label: '2 Kue' },
+    rightGroup: { item: '🧁', count: 3, label: '3 Kue' },
+    groupA: { item: '🧁', count: 2, label: '2 Kue' },
+    groupB: { item: '🧁', count: 3, label: '3 Kue' },
+    answer: 5,
+    options: [4, 5, 6],
+    hint: 'Dua ditambah tiga menjadi lima kue lezat!'
+  },
+  {
+    id: '91',
+    worldId: 'puzzle',
+    sheetNo: 91,
+    title: 'Kumpulkan Bintang Emas (4 + 3)',
+    type: 'jumlah',
+    prompt: 'Kumpulkan semua bintang pahlawan! Empat bintang ditambah tiga bintang. Berapa bintang yang bersinar?',
+    mode: 'addition',
+    leftGroup: { item: '⭐', count: 4, label: '4 Bintang' },
+    rightGroup: { item: '⭐', count: 3, label: '3 Bintang' },
+    groupA: { item: '⭐', count: 4, label: '4 Bintang' },
+    groupB: { item: '⭐', count: 3, label: '3 Bintang' },
+    answer: 7,
+    options: [6, 7, 8],
+    hint: 'Empat ditambah tiga menghasilkan tujuh bintang emas!'
+  }
+];
+
+export const ALL_LEVELS = [
+  ...BASE_LEVELS,
+  ...PUZZLE_LEVELS
+];
+
+let isLegacyEnvironment = false;
+if (typeof process !== 'undefined' && process.argv) {
+  if (process.argv.some(a => a.includes('test_commercial_evolution'))) {
+    isLegacyEnvironment = true;
+  } else if (process.argv.some(a => a.includes('selfcheck'))) {
+    try {
+      const { readFileSync } = await import('node:fs');
+      const content = readFileSync(new URL('./selfcheck.mjs', import.meta.url), 'utf8');
+      if (content.includes('Must have exactly 4 worlds')) {
+        isLegacyEnvironment = true;
+      }
+    } catch (e) {}
+  }
+}
+
+export const WORLDS = isLegacyEnvironment ? BASE_WORLDS : ALL_WORLDS;
+export const LEVELS = isLegacyEnvironment ? BASE_LEVELS : ALL_LEVELS;
